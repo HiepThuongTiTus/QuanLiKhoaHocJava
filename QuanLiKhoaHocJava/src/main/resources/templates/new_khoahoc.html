@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Thêm khóa học</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body style="margin: 50px 190px 70px 240px;border:5 solid green;">
+	<div align="center" style="background-color: pink;">
+		<h1 style="padding: 15px; color:white; font-size: 40px;"> <strong>Thêm một khóa học</strong></h1><br>
+		<form  th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post"
+			enctype="multipart/form-data">
+			<table border="0" cellpadding="10" style="font-size: 18px;">
+			
+				<tr style="float: left; margin-left: 0px;">
+					<td><strong>Nhập mã khóa học:</strong> </td>
+					<td><input type="text" th:field="*{makhoahoc}"></td>
+				</tr>
+				<tr style="float: left; margin-left: 0px;">
+					<td><strong>Nhập ảnh logo hóa học: </strong></td>
+					<td><input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"></td>
+				</tr> 
+				<tr style="float: left; margin-left: 0px;">
+					<td><img style="width: 100px;height:100px; " id=thumbnail alt="Logo Preview"></td>
+				</tr>
+	
+				<tr style="float: left; margin-left: 0px;">
+					<td><strong>Nhập tên khóa học: </strong></td>
+					<td><input type="text" th:field="*{tenkhoahoc}"></td>
+				</tr>
+				<tr>
+					<td><strong>Nhập Mô tả khóa học: </td> </strong>
+				</tr>
+				<tr style="float: left; margin-left: 180px;">
+					<td><textarea rows="3" cols="50" th:field=*{mota}></textarea></td>
+				</tr>
+				<tr style="float: right;padding-top: 100px; margin-right: 50px;">
+					<td colspan="2"><input class="btn btn-primary" type="submit" value="Save"></td>
+				</tr>
+				
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#fileImage').change(function(){
+					showImageThumbnail(this);	
+				});
+			});
+			function showImageThumbnail(fileInput){
+				file = fileInput.files[0];
+				reader = new FileReader();
+				reader.onload = function(e){
+					$('#thumbnail').attr('src',e.target.result);
+				};
+				reader.readAsDataURL(file);
+			}
+	</script>
+</body>
+</html>

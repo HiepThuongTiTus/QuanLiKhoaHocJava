@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Chi Tiết khóa học</title>
+<style type="text/css">
+	a{
+		text-decoration: none;
+		font-size: 2rem;
+		color: black;
+	}
+</style>
+</head>
+<body>
+
+	<div sec:authorize = "isAuthenticated()">
+			Chào mừng:&nbsp;<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
+			&nbsp;
+			<span sec:authentication="principal.authorities"></span>
+		</div> 
+		
+		<div style="float: right;margin-top: -25px;margin-right: 50px;font-size: 1.5em;">	
+		<a href="javascript: logoutForm.submit()">Đăng suất</a>
+			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+				<input type="submit" value="Đăng suất">
+			</form>
+		</div>
+	<h2 style="color: red;">Danh sách các bài học</h2>
+	<a href="" th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
+		<span th:text="${baihoc.stt}"></span>.<strong th:text="${baihoc.tenbaihoc}"></strong><br>
+	</a>
+</body>
+</html>

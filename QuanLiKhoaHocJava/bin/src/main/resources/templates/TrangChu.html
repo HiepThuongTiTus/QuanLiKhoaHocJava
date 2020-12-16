@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Trang Chủ</title>
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+	<!-- <marquee behavior="alternate";scrollamount: "100px">
+        <h1 class="title"><i class="fab fa-java"></i>KHÓA HỌC LẬP TRÌNH JAVA</h1>
+    </marquee> -->
+	<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Dropdown
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">1
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+            alt="avatar image">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div style="margin-top: 40px;" class="container">
+    	<a href="#">
+	   		<button type="button" class="btn btn-primary">Đăng nhập</button>
+		</a>
+        <div class="row">   
+            <div class="col-sm-3">
+                <img class="logo" th:src="@{image/java-mini-logo.jpg}"><br>      
+                <a href="index.html">
+                    <h5>&#10040;Tổng quan về Java</h5>
+                </a>
+                <a href="index.html">
+                    <h6>&#10154; Java là gì?</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Lịch sử Java</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Các tính năng của Java</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Cài đặt môi trường Java (cho người mới bắt đầu)</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Thiết lập PATH cho java</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Chương trình Hello World</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;JDK, JRE và JVM</h6>
+                </a>
+                <a href="#">
+                    <h6>&#10154;Hệ thống Unicode trong java</h6>
+                </a>
+            </div>
+            <div class="col-sm-6">
+               
+                <img th:src="@{image/anhchinh.jpg}" width="530px" height="520px">
+                <br>
+                <br>
+            </div>
+          
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" th:src="@{image/java-la-gi.png}" width="100%" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        
+            <div th:each="KhoaHoc : ${khoahocjava}" class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" th:src="@{${KhoaHoc.LogoImagePath}}" height="142px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${KhoaHoc.tenkhoahoc}"></h5>
+                        <p class="card-text" th:text="${KhoaHoc.mota}"></p>
+                        <a th:href="@{'/khoahoc/'+${KhoaHoc.makhoahoc}}" class="btn btn-primary"><i class="fa fa-video"></i> Học ngay</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    <footer class="page-footer font-small special-color-dark pt-4 bg-dark">
+
+        
+        <div class="container">
+
+            
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+          
+
+        </div>
+        
+
+        
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://LGLH/"> LGLH.com</a>
+        </div>
+        
+
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

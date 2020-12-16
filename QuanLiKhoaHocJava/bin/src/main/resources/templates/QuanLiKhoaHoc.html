@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Quản lí khóa học Java</title>
+</head>
+<body>
+	<div align="center">
+		
+		<div sec:authorize = "isAuthenticated()">
+			Chào mừng:&nbsp;<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
+			&nbsp;
+			<span sec:authentication="principal.authorities"></span>
+		</div>
+		
+		<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
+		
+		<div style="float: right;margin-top: -25px;margin-right: 50px;font-size: 1.5em;">	
+		<a href="javascript: logoutForm.submit()">Đăng suất</a>
+			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+				<input type="submit" value="Đăng suất">
+			</form>
+		</div>
+		
+		<h1>Quản lí khóa học JAVA</h1>
+		<a th:href="@{/admin/quanlikhoahoc/new}">Thêm một khóa học</a>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=makhoahoc&sortDir='+${reverseSortDir}}">Mã khóa học</a>
+					</th>
+					<th>
+						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=tenkhoahoc&sortDir='+${reverseSortDir}}">Tên khóa học</a>
+					</th>
+					<th>Ảnh logo khóa học</th>
+					<th>
+						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=mota&sortDir='+${reverseSortDir}}">Mô tả khóa học</a>
+					</th>
+					
+					<th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Actions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="KhoaHoc : ${listKhoaHocs}">
+					<td th:text="${KhoaHoc.makhoahoc}"></td>
+					<td th:text="${KhoaHoc.tenkhoahoc}"></td>
+					<td>
+						<img style="width: 65px;height: 65px;" th:src="@{${KhoaHoc.LogoImagePath}}">
+					</td>
+					<td th:text="${KhoaHoc.mota}"></td>
+					
+					<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+						<a th:href="@{'/admin/quanlikhoahoc/edit/'+${KhoaHoc.makhoahoc}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;
+						<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/admin/quanlikhoahoc/delete/'+${KhoaHoc.makhoahoc}}"onclick="return confirm('Bạn muốn xóa khóa học này?');">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- Start Phan Trang -->
+		<div style="margin-top: 30px;margin-bottom: 50px;">
+		
+			Tổng số khóa học là : [[${totalItems}]] có -  Trang hiện tại là [[${currentPage}]] trong [[${totalPages}]] Trang
+			&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;
+			<a th:if = "${currentPage>1}" th:href="@{'/admin/quanlikhoahoc/page/1?sortField='+${sortField}+'&sortDir='+${sortDir}}">First</a>
+			<span th:unless="${currentPage >1}">First</span>
+			&nbsp;&nbsp;
+			
+			<a th:if="${currentPage > 1}" th:href="@{'/admin/quanlikhoahoc/page/' + ${currentPage - 1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Previous</a> 
+			<span th:unless="${currentPage >1}">Previous</span>
+			&nbsp;&nbsp;
+			
+			<span th:each="i : ${#numbers.sequence(1,totalPages)}">
+				<a th:if="${i != currentPage}" th:href="@{'/admin/quanlikhoahoc/page/' + ${i}}+'?sortField='+${sortField}+'&sortDir='+${sortDir}">[[${i}]]</a>
+				<span th:unless ="${i != currentPage}" >[[${i}]]</span>
+				&nbsp;&nbsp;
+			</span>
+			
+			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage+1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Next</a>
+			<span th:unless="${currentPage < totalPages}">Next</span>
+			&nbsp;&nbsp;
+			
+			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${totalPages}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Last</a>
+			<span th:unless="${currentPage < totalPages}">Last</span>
+		</div>
+		<!-- End Phan Trang -->
+		
+	</div>
+</body>
+</html>

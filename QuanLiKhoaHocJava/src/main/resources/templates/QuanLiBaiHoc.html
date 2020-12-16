@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" 
+>
+<head>
+<meta charset="UTF-8">
+<title>Quản lí bài học</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-image: url('https://lh6.googleusercontent.com/proxy/Xf-NiPVG5yzqTRCfvoqeNgAQdHY16DY8pHWjmOyWmBMG_YDYZYczipocybJg15CkVtwxNKgfVVIeiejGbULBfzjI1EV5DQwhLfXNM_Fh9E1tkIfG1jKguW-gaoHrF9WQyrwlm1n5yWoOmDUuS4Y1SgvrLr6iuElL=s0-d'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+	<div align="center" style = "margin: 50px 190px 70px 240px;background-color: pink; border-style: double;">
+		<h2>Chào mừng:&nbsp;
+			<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
+			&nbsp;  
+			<span sec:authentication="principal.authorities"></span></h2>
+		
+		<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
+		
+		<div style="float: right;margin-top: -50px;margin-right: 50px;font-size: 1.5em;">	
+		<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
+			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+				<input type="submit" value="Đăng xuất">
+			</form>
+		</div>
+		<div style="border: 1px solid gray; margin-left:10px; margin-right:10px;"> 
+		</div>
+		
+		
+		<h1  style="padding: 20px;">Quản lí bài học trong khóa học JAVA</h1>
+		<a th:href="@{/admin/quanlibaihoc/new}"><button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một bài học</button></a>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/admin/quanlibaihoc/page/'+${currentPage}+'?sortField=mabaihoc&sortDir='+${reverseSortDir}}">Mã bài học</a>
+					</th>
+					<th>
+						<a th:href="@{'/admin/quanlibaihoc/page/'+${currentPage}+'?sortField=stt&sortDir='+${reverseSortDir}}">Số thứ tự bài học</a>
+					</th>
+					<th>
+						<a th:href="@{'/admin/quanlibaihoc/page/'+${currentPage}+'?sortField=tenbaihoc&sortDir='+${reverseSortDir}}">Tên bài học</a>
+					</th>
+					
+					<th>
+						<a th:href="@{'/admin/quanlibaihoc/page/'+${currentPage}+'?sortField=danhmuckhoahoc.makhoahoc&sortDir='+${reverseSortDir}}">Mã khóa học</a>
+					</th>
+					
+					<th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Actions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="BaiHoc : ${listBaiHocs}">
+					<td th:text="${BaiHoc.mabaihoc}"></td>
+					<td th:text="${BaiHoc.stt}"></td>
+					<td th:text="${BaiHoc.tenbaihoc}"></td>
+					<td th:text="${BaiHoc.danhmuckhoahoc.makhoahoc}"></td>
+					
+					<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+						<button type="button" class="btn btn-primary"><a th:href="@{'/admin/quanlibaihoc/edit/'+${BaiHoc.mabaihoc}}" style="color: white;">Edit</a></button>
+						&nbsp;&nbsp;&nbsp;
+						<button type="button" class="btn btn-danger"><a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/admin/quanlibaihoc/delete/'+${BaiHoc.mabaihoc}}"onclick="return confirm('Bạn muốn xóa khóa học này?');" style="color: white;">Delete</a></button>
+					
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- Start Phan Trang -->
+		<div style="margin-top: 30px;margin-bottom: 50px;">
+		Tổng số khóa học là : &nbsp; <strong> [[${totalItems}]] </strong> &nbsp; -  &nbsp; Trang hiện tại là: &nbsp; <strong>[[${currentPage}]] </strong> &nbsp; trong  &nbsp; <strong> [[${totalPages}]] </strong>&nbsp; Trang
+			&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;
+			
+			<br/>
+			<div  style="padding:10px;">
+			<a th:if = "${currentPage>1}" th:href="@{'/admin/quanlibaihoc/page/1?sortField='+${sortField}+'&sortDir='+${sortDir}}">First</a>
+			<span th:unless="${currentPage >1}">First</span>
+			&nbsp;&nbsp;
+			
+			<a th:if="${currentPage > 1}" th:href="@{'/admin/quanlibaihoc/page/' + ${currentPage - 1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Previous</a> 
+			<span th:unless="${currentPage >1}">Previous</span>
+			&nbsp;&nbsp;
+			
+			<span th:each="i : ${#numbers.sequence(1,totalPages)}">
+				<a th:if="${i != currentPage}" th:href="@{'/admin/quanlibaihoc/page/' + ${i}}+'?sortField='+${sortField}+'&sortDir='+${sortDir}">[[${i}]]</a>
+				<span th:unless ="${i != currentPage}" >[[${i}]]</span>
+				&nbsp;&nbsp;
+			</span>
+			
+			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlibaihoc/page/'+${currentPage+1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Next</a>
+			<span th:unless="${currentPage < totalPages}">Next</span>
+			&nbsp;&nbsp;
+			
+			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlibaihoc/page/'+${totalPages}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Last</a>
+			<span th:unless="${currentPage < totalPages}">Last</span>
+		</div>
+		<!-- End Phan Trang -->
+	</div>	
+	<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color: white;">Quay về</a></button>
+	</div>
+</body>
+</html>

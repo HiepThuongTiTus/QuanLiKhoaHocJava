@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Admin</title>
+    <style type="text/css">
+    	body {
+    position: relative;
+  }
+h1{
+    background-color: rgb(15, 77, 56);
+    padding: 10px;
+    color: white;
+    padding-left: 80px;
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+  }
+
+  div.col-8 div {
+    margin-top: 70px;
+    height: 100%;
+    background-color: coral;
+  }
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+  <div class="fixed-top">
+    <h1> LGLH </h1>
+  </div>
+  <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-4" id="myScrollspy">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/quanlibaihoc"><p>Quản lí thông bài học</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="col-sm-9 col-8">
+        
+        	<h3>Thông tin đăng nhập vào hệ thống</h3>
+         	<div sec:authorize = "isAuthenticated()">
+			&nbsp;&nbsp;Chào mừng:&nbsp;&nbsp;&nbsp;<span style="color:blue;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
+			&nbsp;
+			<span sec:authentication="principal.authorities"></span>			
+		
+			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+				<input type="submit" value="Đăng xuất">
+			</form>
+		</div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

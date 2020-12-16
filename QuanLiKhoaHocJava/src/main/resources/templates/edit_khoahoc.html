@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Chỉnh sửa khóa học</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+		<div align="center">
+		<h1>Thêm một khóa học</h1><br>
+		<form th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Nhập mã khóa học: </td>
+					<td><input type="text" th:field="*{makhoahoc}" readonly="readonly"></td>
+				</tr>
+				
+				<tr>
+					<td>Nhập ảnh logo hóa học: </td>
+					<td><input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"></td>
+				</tr> 
+				<tr>
+					<td><img style="width: 100px;height:100px; " id=thumbnail alt="Logo Preview"></td>
+				</tr>
+				
+				<tr>
+					<td>Nhập tên khóa học: </td>
+					<td><input type="text" th:field="*{tenkhoahoc}"></td>
+				</tr>
+				<tr>
+					<td>Nhập Mô tả khóa học: </td>
+					<td><textarea rows="3" cols="22" th:field=*{mota}></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#fileImage').change(function(){
+					showImageThumbnail(this);	
+				});
+			});
+			function showImageThumbnail(fileInput){
+				file = fileInput.files[0];
+				reader = new FileReader();
+				reader.onload = function(e){
+					$('#thumbnail').attr('src',e.target.result);
+				};
+				reader.readAsDataURL(file);
+			}
+	</script>
+</body>
+</html>

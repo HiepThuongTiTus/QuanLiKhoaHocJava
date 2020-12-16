@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" 
+>
+<head>
+<meta charset="UTF-8">
+<title>Thêm bài học Java</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Thêm một bài học</h1><br>
+		<form  th:action="@{/admin/quanlibaihoc/save}" th:object="${baihoc}" method="post">
+		 
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Nhập mã bài học: </td>
+					<td><input type="text" th:field="*{mabaihoc}"></td>
+				</tr>
+				
+				<tr>
+					<td>Nhập số thứ tự bài học: </td>
+					<td><input type="text" th:field="*{stt}"></td>
+				</tr> 
+	
+				<tr>
+					<td>Nhập tên bài học: </td>
+					<td><input type="text" th:field="*{tenbaihoc}"></td>
+				</tr>
+				<tr>
+					<td>Nhập mã khóa học: </td>
+					<td><input type="text" th:field="*{danhmuckhoahoc.makhoahoc}"></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
