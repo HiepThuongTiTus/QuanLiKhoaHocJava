@@ -8,99 +8,151 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body style="background-image: url('https://lh6.googleusercontent.com/proxy/Xf-NiPVG5yzqTRCfvoqeNgAQdHY16DY8pHWjmOyWmBMG_YDYZYczipocybJg15CkVtwxNKgfVVIeiejGbULBfzjI1EV5DQwhLfXNM_Fh9E1tkIfG1jKguW-gaoHrF9WQyrwlm1n5yWoOmDUuS4Y1SgvrLr6iuElL=s0-d'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-	<div align="center" style = "margin: 50px 190px 70px 240px;background-color: pink; border-style: double;">
-		<div sec:authorize = "isAuthenticated()">
-			<h2>Chào mừng:&nbsp;
-			<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
-			&nbsp;  
-			<span sec:authentication="principal.authorities"></span></h2>
-		</div>
+<style>
+   	body {
+    position: relative;
+  }
+h1{
+  	background-color: #2E2E2E;
+    padding: 10px;
+    color: white;
+    padding-left: 80px;
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ <div class="fixed-top">
+    <h1> LGLH </h1>
+  </div>
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-4" id="myScrollspy" style="border-right: 2px solid #2E2E2E; margin-top: 80px;">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/quanlibaihoc"><p>Quản lí thông tin bài học</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="col-sm-9 col-8">
+				<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
+				<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
+					<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+						<input type="submit" value="Đăng xuất">
+					</form>
 		
-		<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
-		
-		<div style="float: right;margin-top: -50px;margin-right: 50px;font-size: 1.5em;">	
-		<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
-			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
-				<input type="submit" value="Đăng xuất">
-			</form>
-		</div>
-		
-		<div style="border: 1px solid gray; margin-left:10px; margin-right:10px;"> 
-		</div>
-		
-		<h1 style="padding: 20px;">Quản lí khóa học JAVA</h1>
-		<a th:href="@{/admin/quanlikhoahoc/new}"> <button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một khóa học</button></a>
-		<table border="1" cellpadding="10">
-			<thead>
-				<tr>
-					<th>
-						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=makhoahoc&sortDir='+${reverseSortDir}}">Mã khóa học</a>
-					</th>
-					<th>
-						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=tenkhoahoc&sortDir='+${reverseSortDir}}">Tên khóa học</a>
-					</th>
-					<th>Ảnh logo khóa học</th>
-					<th>
-						<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=mota&sortDir='+${reverseSortDir}}">Mô tả khóa học</a>
-					</th>
+				<strong><h2 style="padding: 20px;">Quản lí khóa học JAVA</h2></strong>
+				<a th:href="@{/admin/quanlikhoahoc/new}"> <button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một khóa học</button></a>
+				<table border="1" cellpadding="10" style="margin-left: 100px; padding:10px;">
+					<thead>
+						<tr>
+							<th>
+								<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=makhoahoc&sortDir='+${reverseSortDir}}">Mã khóa học</a>
+							</th>
+							<th>
+								<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=tenkhoahoc&sortDir='+${reverseSortDir}}">Tên khóa học</a>
+							</th>
+							<strong><th>Ảnh logo khóa học</th></strong>
+							<th>
+								<a th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage}+'?sortField=mota&sortDir='+${reverseSortDir}}">Mô tả khóa học</a>
+							</th>
+							
+							<strong><th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Actions</th></strong>
+						</tr>
+					</thead>
 					
-					<th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Actions</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<tr th:each="KhoaHoc : ${listKhoaHocs}">
-					<td th:text="${KhoaHoc.makhoahoc}"></td>
-					<td th:text="${KhoaHoc.tenkhoahoc}"></td>
-					<td>
-						<img style="width: 65px;height: 65px;" th:src="@{${KhoaHoc.LogoImagePath}}">
-					</td>
-					<td th:text="${KhoaHoc.mota}"></td>
+					<tbody>
+						<tr th:each="KhoaHoc : ${listKhoaHocs}">
+							<td th:text="${KhoaHoc.makhoahoc}"></td>
+							<td th:text="${KhoaHoc.tenkhoahoc}"></td>
+							<td>
+								<img style="width: 138px;height: 72px;" th:src="@{${KhoaHoc.LogoImagePath}}">
+							</td>
+							<td th:text="${KhoaHoc.mota}"></td>
+							
+							<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+								<button type="button" class="btn btn-primary"><a th:href="@{'/admin/quanlikhoahoc/edit/'+${KhoaHoc.makhoahoc}}" style="color: white;">Edit</a></button>
+								&nbsp;&nbsp;&nbsp;
+								<button type="button" class="btn btn-danger">
+									<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/admin/quanlikhoahoc/delete/'+${KhoaHoc.makhoahoc}}"  style="color: white;" onclick="return confirm('Bạn muốn xóa khóa học này?');">Delete</a>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<!-- Start Phan Trang -->
+				<div style="text-align: center; margin-top: 10px;">
+					Tổng số khóa học là : &nbsp; <strong> [[${totalItems}]] </strong> &nbsp; -  &nbsp; Trang hiện tại là: &nbsp; <strong>[[${currentPage}]] </strong> &nbsp; trong  &nbsp; <strong> [[${totalPages}]] </strong>&nbsp; Trang
+					&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;
 					
-					<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
-						<button type="button" class="btn btn-primary"><a th:href="@{'/admin/quanlikhoahoc/edit/'+${KhoaHoc.makhoahoc}}" style="color: white;">Edit</a></button>
-						&nbsp;&nbsp;&nbsp;
-						<button type="button" class="btn btn-danger">
-							<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/admin/quanlikhoahoc/delete/'+${KhoaHoc.makhoahoc}}"  style="color: white;" onclick="return confirm('Bạn muốn xóa khóa học này?');">Delete</a>
-						</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<!-- Start Phan Trang -->
-		<div style="margin-top: 30px;margin-bottom: 50px;">
-		
-			Tổng số khóa học là : &nbsp; <strong> [[${totalItems}]] </strong> &nbsp; -  &nbsp; Trang hiện tại là: &nbsp; <strong>[[${currentPage}]] </strong> &nbsp; trong  &nbsp; <strong> [[${totalPages}]] </strong>&nbsp; Trang
-			&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;
-			
-			<br/>
-			<div  style="padding:10px;">
-			<a th:if = "${currentPage>1}" th:href="@{'/admin/quanlikhoahoc/page/1?sortField='+${sortField}+'&sortDir='+${sortDir}}">First</a>
-			<span th:unless="${currentPage >1}">First</span>
-			&nbsp;&nbsp;
-			
-			<a th:if="${currentPage > 1}" th:href="@{'/admin/quanlikhoahoc/page/' + ${currentPage - 1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Previous</a> 
-			<span th:unless="${currentPage >1}">Previous</span>
-			&nbsp;&nbsp;
-			
-			<span th:each="i : ${#numbers.sequence(1,totalPages)}">
-				<a th:if="${i != currentPage}" th:href="@{'/admin/quanlikhoahoc/page/' + ${i}}+'?sortField='+${sortField}+'&sortDir='+${sortDir}">[[${i}]]</a>
-				<span th:unless ="${i != currentPage}" ><strong> [[${i}]] </strong></span>
-				&nbsp;&nbsp;
-			</span>
-			
-			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage+1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Next</a>
-			<span th:unless="${currentPage < totalPages}">Next</span>
-			&nbsp;&nbsp;
-			
-			<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${totalPages}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Last</a>
-			<span th:unless="${currentPage < totalPages}">Last</span>
+					<br/>
+					<div  style="padding:10px;">
+					<a th:if = "${currentPage>1}" th:href="@{'/admin/quanlikhoahoc/page/1?sortField='+${sortField}+'&sortDir='+${sortDir}}">First</a>
+					<span th:unless="${currentPage >1}">First</span>
+					&nbsp;&nbsp;
+					
+					<a th:if="${currentPage > 1}" th:href="@{'/admin/quanlikhoahoc/page/' + ${currentPage - 1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Previous</a> 
+					<span th:unless="${currentPage >1}">Previous</span>
+					&nbsp;&nbsp;
+					
+					<span th:each="i : ${#numbers.sequence(1,totalPages)}">
+						<a th:if="${i != currentPage}" th:href="@{'/admin/quanlikhoahoc/page/' + ${i}}+'?sortField='+${sortField}+'&sortDir='+${sortDir}">[[${i}]]</a>
+						<span th:unless ="${i != currentPage}" ><strong> [[${i}]] </strong></span>
+						&nbsp;&nbsp;
+					</span>
+					
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${currentPage+1}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Next</a>
+					<span th:unless="${currentPage < totalPages}">Next</span>
+					&nbsp;&nbsp;
+					
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/quanlikhoahoc/page/'+${totalPages}+ '?sortField='+${sortField}+'&sortDir='+${sortDir}}">Last</a>
+					<span th:unless="${currentPage < totalPages}">Last</span>
+					</div>
+				</div>
+				<!-- End Phan Trang -->	
+				<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color:white; margin-right: 0px;">Quay về</a></button>
 			</div>
-		</div>
-		<!-- End Phan Trang -->	
-		<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color:white">Quay về</a></button>
-	</div>
+</div>
+ </div>
+ 
+ <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+   <a href="https://LGLH/"> LGLH.com</a>
+ </div>
 </body>
 </html>

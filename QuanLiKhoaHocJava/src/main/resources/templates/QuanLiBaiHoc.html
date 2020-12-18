@@ -8,28 +8,78 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body style="background-image: url('https://lh6.googleusercontent.com/proxy/Xf-NiPVG5yzqTRCfvoqeNgAQdHY16DY8pHWjmOyWmBMG_YDYZYczipocybJg15CkVtwxNKgfVVIeiejGbULBfzjI1EV5DQwhLfXNM_Fh9E1tkIfG1jKguW-gaoHrF9WQyrwlm1n5yWoOmDUuS4Y1SgvrLr6iuElL=s0-d'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-	<div align="center" style = "margin: 50px 190px 70px 240px;background-color: pink; border-style: double;">
-		<h2>Chào mừng:&nbsp;
-			<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
-			&nbsp;  
-			<span sec:authentication="principal.authorities"></span></h2>
+<style>
+   	body {
+    position: relative;
+  }
+h1{
+    background-color: #2E2E2E;
+    padding: 10px;
+    color: white;
+    padding-left: 80px;
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+    color:white;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ <div class="fixed-top">
+    <h1> LGLH </h1>
+  </div>
+	 <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-4" id="myScrollspy" style="border-right: 2px solid #2E2E2E; margin-top: 80px;">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
+            </li>
+            <li class="nav-link active">
+              <a class="nav-link" href="/admin/quanlibaihoc"><p  style="color: white;">Quản lí thông tin bài học</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="col-sm-9 col-8">
+				<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
+				<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
+					<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+						<input type="submit" value="Đăng xuất">
+					</form>
 		
-		<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
-		
-		<div style="float: right;margin-top: -50px;margin-right: 50px;font-size: 1.5em;">	
-		<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
-			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
-				<input type="submit" value="Đăng xuất">
-			</form>
-		</div>
-		<div style="border: 1px solid gray; margin-left:10px; margin-right:10px;"> 
-		</div>
-		
-		
-		<h1  style="padding: 20px;">Quản lí bài học trong khóa học JAVA</h1>
+		<h2  style="padding: 20px;"><strong> Quản lí bài học trong khóa học JAVA</strong></h2>
 		<a th:href="@{/admin/quanlibaihoc/new}"><button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một bài học</button></a>
-		<table border="1" cellpadding="10">
+		<table border="1" cellpadding="10" style="margin-left: 100px; padding:10px;">
 			<thead>
 				<tr>
 					<th>
@@ -68,7 +118,7 @@
 		</table>
 		
 		<!-- Start Phan Trang -->
-		<div style="margin-top: 30px;margin-bottom: 50px;">
+		<div style="text-align: center; margin-top: 10px;">
 		Tổng số khóa học là : &nbsp; <strong> [[${totalItems}]] </strong> &nbsp; -  &nbsp; Trang hiện tại là: &nbsp; <strong>[[${currentPage}]] </strong> &nbsp; trong  &nbsp; <strong> [[${totalPages}]] </strong>&nbsp; Trang
 			&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;
 			
@@ -97,7 +147,11 @@
 		</div>
 		<!-- End Phan Trang -->
 	</div>	
-	<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color: white;">Quay về</a></button>
+				<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color:white; margin-right: 0px;">Quay về</a></button>
+</div>
 	</div>
+ <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+      		 <a href="https://LGLH/"> LGLH.com</a>
+ </div>
 </body>
 </html>
