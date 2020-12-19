@@ -1,4 +1,4 @@
-package com.vanlinh.springboot;
+package com.LH.springboot;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

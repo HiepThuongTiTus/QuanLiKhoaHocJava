@@ -1,4 +1,4 @@
-package com.vanlinh.springboot;
+package com.LH.springboot;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

@@ -1,4 +1,4 @@
-package com.vanlinh.springboot;
+package com.LH.springboot;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

@@ -1,4 +1,4 @@
-package com.vanlinh.springboot;
+package com.LH.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
