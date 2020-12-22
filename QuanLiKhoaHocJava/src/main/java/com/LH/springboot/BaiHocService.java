@@ -41,4 +41,7 @@ public class BaiHocService{
 	void deleteBaiHoc(String mabaihoc) {
 		baihocrepository.deleteById(mabaihoc);
 	}
+	public BaiHoc getbaihocByKhoaHoc(String makhoahoc, String mabaihoc) {
+		return baihocrepository.getBaihocByMaKhoaHoc(makhoahoc, mabaihoc);
+	}
 }

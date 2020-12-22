@@ -28,6 +28,9 @@ public class BaiHoc {
 	@OneToOne
 	@JoinColumn(name="makhoahoc")
 	private KhoaHoc danhmuckhoahoc;
+	
+	@Column(columnDefinition = "nvarchar(max)")
+	private String noidung;
 
 	public String getMabaihoc() {
 		return mabaihoc;
@@ -60,5 +63,15 @@ public class BaiHoc {
 	public void setDanhmuckhoahoc(KhoaHoc danhmuckhoahoc) {
 		this.danhmuckhoahoc = danhmuckhoahoc;
 	}
+
+	public String getNoidung() {
+		return noidung;
+	}
+
+	public void setNoidung(String noidung) {
+		this.noidung = noidung;
+	}
+	
+	
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/khoahoc")
@@ -21,7 +22,7 @@ public class TrangChuController {
 	public String listKhoaHocTrangChu(Model model) {
 		List<KhoaHoc> listKhoaHoc = khoaHocService.listKhoaHocTrangChu();
 		model.addAttribute("khoahocjava",listKhoaHoc);
-		return "bai1";
+		return "TrangChu";
 	}
 	
 	/*
@@ -37,4 +38,12 @@ public class TrangChuController {
 		model.addAttribute("listAllBaiHocByMaKhoaHoc", listAllBaiHocTheoMaKhoaHoc);
 		return "ChiTietKhoaHoc";
 	}
+	
+	@GetMapping("/{makhoahoc}/{mabaihoc}")
+	public ModelAndView showEditKhoaHocForm2(@PathVariable String makhoahoc, @PathVariable String mabaihoc) {
+	ModelAndView mav1 = new ModelAndView("bai1.html");
+	BaiHoc baiHoc = baihocservice.getbaihocByKhoaHoc(makhoahoc, mabaihoc);
+	mav1.addObject("chitietbaihoc1", baiHoc);
+	return mav1;
+}
 }

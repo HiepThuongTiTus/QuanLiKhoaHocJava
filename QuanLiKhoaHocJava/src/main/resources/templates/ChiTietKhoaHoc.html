@@ -5,31 +5,82 @@
 <head>
 <meta charset="UTF-8">
 <title>Chi Tiết khóa học</title>
-<style type="text/css">
-	a{
-		text-decoration: none;
-		font-size: 2rem;
-		color: black;
-	}
-</style>
-</head>
-<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-	<div sec:authorize = "isAuthenticated()">
-			Chào mừng:&nbsp;<span style="color:red;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
-			&nbsp;
-			<span sec:authentication="principal.authorities"></span>
-		</div> 
-		
-		<div style="float: right;margin-top: -25px;margin-right: 50px;font-size: 1.5em;">	
-		<a href="javascript: logoutForm.submit()">Đăng suất</a>
+<style>
+   	body {
+    position: relative;
+  }
+h1{
+    background-color: #2E2E2E;
+    padding: 10px;
+    color: white;
+    padding-left: 80px;
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+    color:white;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ <div class="fixed-top">
+    <h1> LGLH </h1>
+    <div style="float: right;margin-right: 50px;font-size: 1.5em;color:white;">	
+		<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()" style="color: white;">Đăng xuất</a> </button>
 			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
-				<input type="submit" value="Đăng suất">
+				<input type="submit" value="Đăng xuất">
 			</form>
 		</div>
-	<h2 style="color: red;">Danh sách các bài học</h2>
-	<a href="" th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
+  </div>
+		
+	<h2 style="color: orange;font-size: 50px; margin-top: 80px; padding: 10px;">Danh sách các bài học</h2>
+	<!-- <a href="" th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
 		<span th:text="${baihoc.stt}"></span>.<strong th:text="${baihoc.tenbaihoc}"></strong><br>
-	</a>
+	</a> -->
+	<div style="margin-left: 350px; margin-top: 50px; text-align: center;">
+		<table border="2" width=700px>
+			<tr>
+				<td><strong>STT</strong></td>
+				<td><strong>Tên Bài học</strong></td>
+				<td></td>
+			</tr>
+			<tr th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
+				<!-- <td th:text="${baihoc.mabaihoc}"></td> -->
+				<td th:text="${baihoc.stt}"></td>
+				<td  th:text="${baihoc.tenbaihoc}"></td>
+				<td><a style="color: red;" th:href="@{'/khoahoc/'+${baihoc.danhmuckhoahoc.makhoahoc}+'/'+${baihoc.mabaihoc}}"><strong>Học ngay</strong></a></td>
+			</tr>
+		</table>
+	</div>
+<div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+      		 <a href="https://LGLH/"> LGLH.com</a>
+ </div>
 </body>
 </html>

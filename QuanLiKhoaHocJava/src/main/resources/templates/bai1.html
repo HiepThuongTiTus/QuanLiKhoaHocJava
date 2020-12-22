@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,165 +134,10 @@ hr{
 }
 
 </style>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
- <div class="fixed-top">
-    <h1> LGLH </h1>
-  </div>
-    <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/ckBc_1XnXhA"
-                    frameborder="0" style="margin-top: 90px;padding-right:30px; border-right: 2px solid black;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <div class="col-sm-6">
-                    <div id="wrapper" style="margin-top: 80px;">
-                        <div id="scroller">
-                                <h1 class="gach">Mệnh đề if - else trong java </h1> 
-                               
-                                <p class="menhde">Mệnh đề if trong java được sử dụng để kiểm tra giá trị dạng boolean của điều kiện.
-                                    Mệnh đề này trả về giá trị <strong>True </strong> hoặc <strong>False</strong>. Có các kiểu của mệnh đề if-else trong java như sau:
-                                    <ul>
-                                        <li>Mệnh đề if</li>
-                                        <li> Mệnh đề if-else</li></a>
-                                        <li>Mệnh đề if-else-if</li></a>
-        
-                                    </ul>
-                                </p>
-        
-                                <h2>Mệnh đề if</h2>
-                                <p>Mệnh đề if được sử dụng để kiểm tra giá trị dạng boolean của điều kiện. Khối lệnh sau if được thực thi nếu giá trị của điều kiện là <strong>True</strong></p>
-                                <u><strong><p>Cú pháp: </p></strong></u>
-        
-                                <div>
-                                    <ol> 
-                                        <li>if (condition)  {</li>
-                                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                        <li style="padding-left:50px">//nếu condition = true </li>
-                                        <li>}</li> 
-                                    </ol>
-                                </div>
-                                
-                                <img href="https://viettuts.vn/images/java/menh-de-if-else-trong-java.png alt=" style="margin-left: 250px"></a>
-                            <u><strong><p>Ví dụ: </p></strong></u>
-                                <div>
-                                    <ol>
-                                        <li style="padding-left:10px">public class Test { </li>
-                                        <li style="padding-left:80px">public static void main(String[] args) { </li>
-                                        <li style="padding-left:100px">int age = 20;</li>
-                                        <li style="padding-left:100px">if (age > 18) {</li>
-                                        <li style="padding-left:150px">System.out.print("Tuổi lớn hơn 18");</li> 
-                                        <li style="padding-left:100px">}</li>
-                                        <li style="padding-left:50px">} </li> 
-                                        <li style="padding-left:10px">}</li>
-                                    </ol>
-                                </div>
-                                <u><strong><p>Kết quả: </p></u></strong>
-                                <p class="tuoi">Tuổi lớn hơn 18</p>
-                <hr>
-                            <h2>Mệnh đề if-else</h2>
-                            <p>Mệnh đề if-else cũng kiểm tra giá trị dạng boolean của điều kiện. 
-                                Nếu giá trị điều kiện là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện, 
-                                nếu là <strong>False</strong> thì chỉ có khối lệnh sau else được thực hiện.</p>
-                                <u><strong><p>Cú pháp: </p></strong></u>
-                                <div>
-                                    <ol> 
-                                        <li>if (condition)  {</li>
-                                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                        <li style="padding-left:50px">//nếu condition = true </li>
-                                        <li>}</li> 
-                                        <li>else { </li>
-                                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                            <li style="padding-left:50px">//nếu condition = false </li>
-                                        <li>}</li> 
-                                    </ol>
-                                </div>
-                            <u><strong><p>Ví dụ: </p></strong></u>
-                            <div>
-                                <ol>
-                                    <li style="padding-left:10px">public class Test { </li>
-                                    <li style="padding-left:50px">public static void main(String[] args) { </li>
-                                    <li style="padding-left:80px">int number = 13;</li> 
-                                    <li style="padding-left:80px">if (number % 2 == 0) {</li>
-                                    <li style="padding-left:100px">System.out.println("Số " + number + " là số chẵn.");</li>
-                                    <li style="padding-left:80px"> } else { </li> 
-                                    <li style="padding-left:100px">System.out.println("Số " + number + " là số lẻ."); </li>
-                                    <li style="padding-left:80px">  }</li>
-                                    <li style="padding-left:50px">} </li>
-                                    <li style="padding-left:10px">}</li>
-                                </ol> 
-                            </div>
-                            <u><strong><p>Kết quả: </p></u></strong>
-                            <p class="tuoi">Số 13 là số lẻ.</p>
-                            <hr>
-                            <h2>Mệnh đề if-else-if</h2>
-                            <p>Mệnh đề if-else-if cũng kiểm tra giá trị dạng boolean của điều kiện.
-                            Nếu giá trị điều kiện if là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện.
-                            Nếu giá trị điều kiện if else nào là <strong>True</strong> thì chỉ có khối lệnh sau else if đó sẽ được thực hiện... 
-                            Nếu tất cả điều kiện của if và else if là <strong>False</strong> thì chỉ có khối lệnh sau else sẽ được thực hiện.</p>
-                            <u><strong><p>Cú pháp: </p></strong></u>
-                            <div>
-                                <ol> 
-                                    <li>if (condition1)  {</li>
-                                    <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                    <li style="padding-left:50px">//nếu condition1 = true </li>
-                                    <li>}</li> 
-                                    <li>else if (condition2) </li>
-                                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                        <li style="padding-left:50px">//nếu condition2 = true </li>
-                                    <li>}</li> 
-                                    <li>else if (condition3)</li>
-                                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                        <li style="padding-left:50px">//nếu condition3 = true </li>
-                                    <li>}</li> 
-                                    <li>...</li>
-                                    <li>else</li>
-                                    <li style="padding-left:50px">//khối lệnh này thưc thi </li>
-                                    <li style="padding-left:50px">//nếu tất cả những điều kiện trên là false</li>
-                                <li>}</li> 
-                                </ol>
-                            </div> 
-                            <u><strong><p>Ví dụ: </p></strong></u>
-                            <div>
-                                <ol>
-                                    <li style="padding-left:10px">public class Test { </li>
-                                    <li style="padding-left:50px">public static void main(String[] args) { </li>
-                                    <li style="padding-left:80px">int marks = 65;</li>
-                                    <li style="padding-left:80px"> if (marks < 50) { </li>
-                                    <li style="padding-left:100px"> System.out.println("Tạch!");</li>
-                                    <li style="padding-left:80px">} else if (marks >= 50 && marks < 60) { </li>
-                                    <li style="padding-left:100px">  System.out.println("Xếp loại D"); </li>
-                                    <li style="padding-left:80px"></li>} else if (marks >= 60 && marks < 70) { </li>
-                                    <li style="padding-left:100px"> System.out.println("Xếp loại C"); </li>
-                                    <li style="padding-left:80px"> } else if (marks >= 70 && marks < 80) { </li>
-                                    <li style="padding-left:100px">  System.out.println("Xếp loại B"); </li>
-                                    <li style="padding-left:80px">} else if (marks >= 80 && marks < 90) {</li>
-                                    <li style="padding-left:100px">System.out.println("Xếp loại A");</li>
-                                    <li style="padding-left:80px">} else if (marks >= 90 && marks < 100) {</li>
-                                    <li style="padding-left:100px">System.out.println("Xếp loại A+");</li>
-                                    <li style="padding-left:80px">} else {</li>
-                                    <li style="padding-left:100px">System.out.println("Giá trị không hợp lệ!");</li>
-                                    <li style="padding-left:80px">}</li>
-                                    <li style="padding-left:50px">}</li>
-                                    <li style="padding-left:10px">}</li>
-                                </ol>
-                            </div>
-                    <u><strong><p>Kết quả: </p></u></strong>
-                    <p class="tuoi">Xếp loại C</p>
-                    <hr>
-        
-                    <div class="chux"> 
-                            <p class="chux2"> <i class="fas fa-arrow-alt-circle-left"></i>Toán tử trong java</p>
-                            <p class="chux1">Mệnh đề Switch-case trong java <i class="fas fa-arrow-circle-right"></i></p>    
-                        </div>
-                        
-                    </div>
-                </div>
-                </div>
-            </div>
-    </div>
-    <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
-      		 <a href="https://LGLH/"> LGLH.com</a>
- </div>
+<body th:object="${chitietbaihoc1}" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ 
+ 	<div th:remove="tag" th:utext=${chitietbaihoc1.noidung}>
+	
+	</div>
 </body>
 </html>

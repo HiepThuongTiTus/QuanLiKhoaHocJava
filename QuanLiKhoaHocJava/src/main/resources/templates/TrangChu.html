@@ -5,6 +5,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <meta charset="UTF-8">
 <title>Trang Chủ</title>
 </head>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,34 +48,13 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     	
         <div class="row">   
             <div class="col-sm-4">
-                <img class="logo" th:src="@{image/java-mini-logo.jpg}"><br>      
-                <a href="index.html">
-                    <h5>&#10040;Tổng quan về Java</h5>
-                </a>
-                <a href="index.html">
-                    <h6>&#10154; Java là gì?</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Lịch sử Java</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Các tính năng của Java</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Cài đặt môi trường Java (cho người mới bắt đầu)</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Thiết lập PATH cho java</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Chương trình Hello World</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;JDK, JRE và JVM</h6>
-                </a>
-                <a href="#">
-                    <h6>&#10154;Hệ thống Unicode trong java</h6>
-                </a>
+              <!-- Menu -->
+    <div id="menu">
+                <ul>
+                  <h4 class="h-2" style="padding-top: 15px;padding-bottom: 15px;text-align: center;">DANH MỤC KHÓA HOC</h4>
+                	<li th:each="KhoaHoc : ${khoahocjava}"><a href="#" th:text="${KhoaHoc.tenkhoahoc}" style="padding: 5px;padding-top: 5px;padding-bottom: 5px;"></a></li>
+                </ul>
+               </div>
             </div>
             <div class="col-sm-8"> 
                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -106,7 +86,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <div class="container">
         <div class="row">
         
-            <div th:each="KhoaHoc : ${khoahocjava}" class="col-sm-3">
+            <div th:each="KhoaHoc : ${khoahocjava}" class="col-sm-3" style="margin-bottom: 10px;margin-top:10px;">
                 <div class="card">
                     <img class="card-img-top" th:src="@{${KhoaHoc.LogoImagePath}}" height="142px" alt="Card image cap">
                     <div class="card-body">

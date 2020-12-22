@@ -6,22 +6,64 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 <meta charset="UTF-8">
 <title>Chỉnh sửa khóa học</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<style>
+   	body {
+    position: relative;
+  }
+h1{
+  	background-color: #2E2E2E;
+    padding: 10px;
+    color: white;
+    padding-left: 80px;
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ <div class="fixed-top">
+    <h1> LGLH </h1>
+  </div>
 		<div align="center">
 		<h1>Thêm một khóa học</h1><br>
 		<form th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post">
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Nhập mã khóa học: </td>
+					<td>Nhập mã khóa học:  &nbsp;&nbsp;&nbsp;</td>
 					<td><input type="text" th:field="*{makhoahoc}" readonly="readonly"></td>
 				</tr>
 				
 				<tr>
-					<td>Nhập ảnh logo hóa học: </td>
+					<td>Nhập ảnh logo khóa học:  &nbsp;&nbsp;&nbsp;</td>
 					<td><input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"></td>
-				</tr> 
-				<tr>
 					<td><img style="width: 100px;height:100px; " id=thumbnail alt="Logo Preview"></td>
 				</tr>
 				
@@ -33,12 +75,15 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 					<td>Nhập Mô tả khóa học: </td>
 					<td><textarea rows="3" cols="22" th:field=*{mota}></textarea></td>
 				</tr>
-				<tr>
-					<td colspan="2"><button type="submit">Save</button></td>
+				<tr style="float: right;padding-top: 30px;">
+					<td colspan="2"><input class="btn btn-primary" type="submit" value="Save"></td>
 				</tr>
 			</table>
 		</form>
 	</div>
+	 <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+   <a href="https://LGLH/"> LGLH.com</a>
+ </div>
 	<script type="text/javascript">
 			$(document).ready(function(){
 				$('#fileImage').change(function(){
