@@ -21,4 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new MyUserDetails(user);
 	}
 
+	public boolean Dangky (User user)
+	{
+		User userdk= userRepository.save(user);
+		return true;
+	}
+	
 }

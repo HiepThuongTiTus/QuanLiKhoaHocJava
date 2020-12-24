@@ -13,7 +13,7 @@
     position: relative;
   }
 h1{
-  	background-color: #2E2E2E;
+  	background-color: #F7BE81;
     padding: 10px;
     color: white;
     padding-left: 80px;
@@ -53,23 +53,23 @@ h1{
   </div>
 <div class="container-fluid">
       <div class="row">
-        <nav class="col-sm-3 col-4" id="myScrollspy" style="border-right: 2px solid #2E2E2E; margin-top: 80px;">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/quanlibaihoc"><p>Quản lí thông tin bài học</p></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="col-sm-9 col-8">
+	        <nav class="col-sm-3 col-4" id="myScrollspy" style="border-right: 2px solid #2E2E2E; margin-top: 80px;">
+	          <ul class="nav nav-pills flex-column">
+	            <li class="nav-item">
+	              <a class="nav-link active" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="/admin/quanlibaihoc"><p>Quản lí thông tin bài học</p></a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
+	            </li>
+	          </ul>
+	        </nav>
+	        <div class="col-sm-9 col-8" style="margin-bottom: 100px;">
 				<!-- <a th:href="@{/doLogout}">Sign out(Link)</a> --> 
 				<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()"  style="color: white;">Đăng xuất</a> </button>
 					<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
@@ -148,10 +148,10 @@ h1{
 				<!-- End Phan Trang -->	
 				<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color:white; margin-right: 0px;">Quay về</a></button>
 			</div>
-</div>
+		</div>
  </div>
  
- <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+ <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 50px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
    <a href="https://LGLH/"> LGLH.com</a>
  </div>
 </body>
