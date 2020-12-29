@@ -6,10 +6,12 @@
 <meta charset="UTF-8">
 <title>Chi Tiết khóa học</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <link rel="stylesheet" href="styl.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
 <style>
    	body {
     position: relative;
@@ -21,15 +23,13 @@ h1{
     padding-left: 80px;
 }
   ul.nav-pills {
-    top: 100px;
     position: fixed;
     color:white;
   }
-  
 #wrapper
 {
 	margin-top: 5px;
-    height: 510px;
+    height: 700px;
     width: 100%;
     border:1px solid black;
     padding:20px;
@@ -37,15 +37,23 @@ h1{
 }
 #scroller
 {
-    height:450px;
+    height:650px;
+}
+.chinh1
+{
+	text-align: center;
+    padding: 15px;
+   color: white;
+    background-color: green;
+    font-size: 25px;
+    border-bottom: 2px solid rgb(57, 57, 218);
 }
 
 .gach
 {
-
     text-align: center;
     padding: 20px;
-    color: white;
+    color: black;
     font-size: 25px;
     border-bottom: 2px solid rgb(57, 57, 218);
 }
@@ -54,7 +62,6 @@ h1{
     font-size: 20px;
     padding: 10px;
     color: rgb(241, 238, 238);
-    background-color: rgb(108, 214, 37);
 }
 
 .gach1:hover{
@@ -99,8 +106,8 @@ h5{
     color: rgb(243, 241, 239);
 }
 li{
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .maul
@@ -117,8 +124,7 @@ ol{
     border-left: 5px solid green;
 }
 li{
-    
-    padding: 5px;
+    padding: 2px;
 }
 .tuoi
 {
@@ -129,8 +135,8 @@ li{
 hr{
     border: 1px solid rgb(180, 180, 192);
 }
-
 </style>
+
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">LGLH</a>
@@ -144,129 +150,446 @@ hr{
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
     </nav>
     <div class="container-fluid">
         <div class="fixed-top">
             <h1> LGLH </h1>
-          </div>
-            <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-4">
-                         <div class="mau1"> 
-                   <h4 class="gach">CÂU LỆNH ĐIỀU KHIỂN</h4>
-                   <div>
-                        <p class="gach1"><i class="fas fa-caret-right"><a th:href="@{'/khoahoc/'+${baihoc.danhmuckhoahoc.makhoahoc}+'/'+${baihoc.mabaihoc}}"><p th:text="${baihoc.tenbaihoc}"></p></a></i></p>
-                   </div>
-                </div>             
-                        </div>
-        
-                        <div class="col-sm-9">
-                            <div id="wrapper" style="margin-top: 80px;">
-                                <div id="scroller">
-                                <iframe width="100%" height="500px" src="https://www.youtube.com/embed/ckBc_1XnXhA"
-                            frameborder="0" style="margin-top: 90px;padding-right:30px; border-right: 2px solid black;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </hr>
-                                       <h3 style="font-weight: bold;" id="goto-h2-1"> Java là gì? </h3>
-                      <p> <strong>Java</strong> là một <strong> một ngôn ngữ lập trình hiện đại, bậc cao, hướng đối tượng, bảo mật và mạnh mẽ.</strong> và là một <strong>Platform</strong>. </p>
-        <p> <strong>Platform:</strong> Bất cứ môi trường phần cứng hoặc phần mềm nào mà trong đó có một chương trình chạy, thì được hiểu như là một Platform. Với môi trường runtime riêng cho mình (JRE) và API, Java được gọi là Platform. </p>
-        <p> Ngôn ngữ lập trình Java ban đầu được phát triển bởi <strong>Sun Microsystems</strong> do <strong>James Gosling</strong> khởi xướng và phát hành vào năm 1995. Phiên bản mới nhất của Java Standard Edition là Java SE 8. Với sự tiến bộ của Java và sự phổ biến rộng rãi của nó, nhiều cấu hình đã được xây dựng để phù hợp với nhiều loại nền tảng khác nhau. Ví dụ: J2EE cho các ứng dụng doanh nghiệp, J2ME cho các ứng dụng di động. </p>
-        <p></p> Các phiên bản J2 mới đã được đổi tên thành Java SE, Java EE và Java ME. Phương châm của java là <strong>"Write Once, Run Anywhere"</strong> - viết một lần chạy nhiều nơi, nghĩa là bạn chỉ cần viết một lần trên window chẳng hạn, sau đó vẫn chương trình đó bạn có thể chạy trên Linux, Android, các thiết bị J2ME...  <p></p>
-                <img class="logo2" src="img/java-la-gi.png">
-        
-                <h3 style="font-weight: bold;" id="goto-h2-2"> Các tính năng của Java </h3>
-        <p> Ngôn ngữ lập trình java có các tính năng sau: </p>
-        <ul>
-        <li><b>Hướng đối tượng</b> - Trong Java, mọi thứ đều là một Object. Java có thể dễ dàng mở rộng và bảo trì vì nó được xây dựng dựa trên mô hình Object.</li>
-        <li><b>Nền tảng độc lập</b> - Không giống nhiều ngôn ngữ lập trình khác bao gồm cả C và C ++, khi Java được biên dịch, nó không được biên dịch thành ngôn ngữ máy nền tảng cụ thể, thay vào mã byte - nền tảng độc lập. Mã byte này được thông dịch bởi máy ảo (JVM) trên nền tảng nào đó mà nó đang chạy.</li>
-        <li><b>Đơn giản</b> - Java được thiết kế để dễ học. Nếu bạn hiểu khái niệm cơ bản về OOP Java, sẽ rất dễ để trở thành master về java.</li>
-        <li><b>Bảo mật</b> - Với tính năng an toàn của Java, nó cho phép phát triển các hệ thống không có virut, giả mạo. Các kỹ thuật xác thực dựa trên mã hoá khóa công khai.</li>
-        <li><b>Kiến trúc - trung lập</b> - Trình biên dịch Java tạo ra định dạng tệp đối tượng kiến trúc trung lập, làm cho mã biên dịch được thực thi trên nhiều bộ vi xử lý, với sự hiện diện của hệ điều hành Java.</li>
-        <li><b>Portable</b> - Là kiến trúc tập trung và không có khía cạnh thực hiện phụ thuộc của đặc tả này làm cho Java khả chuyển. Trình biên dịch trong Java được viết bằng ANSI C, đó là một tập con POSIX.</li>
-        <li><b>Mạnh mẽ</b> - Java làm nỗ lực để loại trừ các tình huống dễ bị lỗi bằng cách kiểm tra lỗi tại thời gian biên dịch và kiểm tra lỗi tại runtime.</li>
-        <li><b>Đa luồng</b> - Với tính năng đa luồng của Java có thể viết các chương trình có thể thực hiện nhiều tác vụ đồng thời. Tính năng thiết kế này cho phép các nhà phát triển xây dựng các ứng dụng tương tác có thể chạy trơn tru hơn.</li>
-        <li><b>Thông dịch</b> - Mã byte Java được dịch trực tiếp tới các máy tính gốc và không được lưu trữ ở bất cứ đâu. </li>
-        <li><b>Hiệu năng cao</b> - Với việc sử dụng trình biên dịch Just-In-Time, Java cho phép thực hiện hiệu năng cao.</li>
-        <li><b>Phân tán</b> - Java được thiết kế cho môi trường phân tán của Internet.</li>
-        <li><b>Năng động</b> - Java là năng động hơn C hoặc C++ vì nó được thiết kế để thích nghi với môi trường đang phát triển. Các chương trình Java có thể mang một lượng lớn thông tin tại runtime mà có thể được sử dụng để xác minh và giải quyết các truy cập vào các đối tượng tại runtime.</li>
-        </ul>
-        <hr>
-        
-        <h3 style="font-weight: bold;" id="goto-h2-3"> Java được sử dụng để làm gì? </h3>
-        <p> Trước khi tôi trả lời câu hỏi, Java được sử dụng để làm gì, hay lý do tại sao bạn nên chọn Java. Java rất phổ biến và đã thống trị lĩnh vực này từ đầu những năm 2000 đến nay 2020. </p>
-        <p> Theo tập đoàn SUN, hiện nay có khoảng 3 tỷ thiết bị đang chạy java. </p><p>
-        <pp> Java đã được sử dụng trong các lĩnh vực khác nhau. Ví dụ: </pp></p>
-        <ol>
-        <li> Desktop App như acrobat reader, media player, antivirus, ... </li>
-        <li> Web App như irctc.co.in, javatpoint.com, ... </li>
-        <li> Enterprise App như các ứng dụng về xử lý nghiệp vụ ngân hàng, ... </li>
-        <li> Thiết bị Mobile như các ứng dụng Android. </li>
-        <li> Hệ thống nhúng </li>
-        <li> Smart Card </li>
-        <li> Robot </li>
-        <li> Game App </li>
-        </ol>
-        <hr>
-        <h3 style="font-weight: bold;" id="goto-h2-4"> Các kiểu của Java App </h3>
-        <p> Có 4 kiểu ứng dụng chính của java app: </p>
-        <h4 id="goto-h3-1"> 1. Standalone App </h3>
-        <p> Standalone App cũng được biết đến như Desktop App hoặc Window-based App. Để tạo ra ứng dụng kiểu này người ta thường sử dụng AWT, Swing hoặc JavaFX framework. </p>
-        <h3 id="goto-h3-2"> 2. Web App </h3>
-        <p> Web App là ứng dụng chạy trên server và tạo được các trang động. Hiện nay, servlet, jsp, struts, jsf, spring... là những công nghệ được sử dụng để tạo Web App trong java. </p>
-        <h4 id="goto-h3-3"> 3. Enterprise App </h3>
-        <p> Một ứng dụng dạng như Banking App, có lợi thế là tính bảo mật cao, cân bằng tải (load balancing) và clustering. Trong java, EJB được sử dụng để tạo các Enterprise App. </p>
-        <h4 id="goto-h3-4"> 4. Mobile App </h3>
-        <p> Mobile App là ứng dụng được tạo ra cho các thiết bị di động. Hiện nay Android và Java ME được sử dụng để chạy các ứng dụng này. </p>
-        <hr>
-        
-        <h3 style="font-weight: bold;" id="goto-h2-5"> Java Platforms </h3>
-        <p> Có 4 nền tảng Java: </p>
-        <h4 id="goto-h3-5"> 1. Java SE (Java Standard Edition) </h3>
-        <p> Java SE là một nền tảng lập trình Java. Nó bao gồm các API lập trình Java như java.lang, java.io, java.net, java.util, java.sql, java.math, v.v. Nó bao gồm các chủ đề cốt lỗi như OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, v.v. </p>
-        
-        <h4 id="goto-h3-6"> 2. Java EE (Java Enterprise Edition) </h4>
-        <p> Đây là một nền tảng doanh nghiệp chủ yếu được sử dụng để phát triển các ứng dụng web và doanh nghiệp. Nó được xây dựng trên nền tảng Java SE. Nó bao gồm các chủ đề như Servlet, JSP, Web Services, EJB, JPA , v.v. </p>
-        
-        <h4 id="goto-h3-7"> 3. Java ME (Java Micro Edition)</h3>
-        <p> Đây là một nền tảng vi mô chủ yếu được sử dụng để phát triển các ứng dụng di động. </p>
-        
-        <h4 id="goto-h3-8"> 4. JavaFX </h3>
-        <p> JavaFX là một nền tảng phần mềm phát triển các ứng dụng Internet phong phú (Rich Internet Applications – RIAs) có thể chạy trên nhiều loại thiết bị, nhiều hệ điều hành khác nhau. JavaFX là một giải pháp công nghệ cho GUI trên nền tảng Java nhằm tạo giao diện đồ họa người dùng dựa trên Swing và Java2D.</p>
-        <hr>
-        
-        
-           <h3 style="font-weight: bold;" id="goto-h2-6"> Tại sao bạn nên học lập trình Java? </h3>
-        <p> Ngoài việc độc lập nền tảng, phong cách "lập trình hướng đối tượng" của Java và sự hấp dẫn rất cao đối với các nhà tuyển dụng IT. </p>
-        <p> Như tên gọi của nó đã cho thấy, lập trình hướng đối tượng (OOP) sử dụng các đối tượng được định nghĩa đầy đủ - và các mối quan hệ giữa các đối tượng với nhau - để thực hiện các tác vụ khác nhau. Do nền tảng mô-đun tự nhiên của nó, OOP thường làm cho nó dễ dàng hơn, nhanh hơn và rẻ hơn trong phát triển và quản lý phần mềm. Cũng dễ hiểu khi những đặc điểm này buộc các tổ chức và doanh nghiệp ôm lấy Java trong vòng tay rộng mở, nâng ngôn ngữ lập trình này trở thành kỹ năng được mong muốn nhất của các nhà tuyển dụng. </p>
-        <p> Và trong khi Java là rất "hot" với các nhà tuyển dụng, nó cũng không kém phần nóng bỏng đối với những người thực sự viết ra các chương trình máy tính. Mức lương trung bình của một lập trình viên Java tại Mỹ là $88K đô-la (hơn 1,8 tỷ VNĐ/năm) và Java tạo ra một nguồn cảm hứng bất tận để thu hút rất nhiều người theo đuổi nghề nghiệp cùng với nó. </p>
-        <h3 style="font-weight: bold;" id="goto-h3-9"> Điều kiện tiên quyết để học lập trình Java </h3>
-        <p> Bạn nên có kiến thức cơ bản về lập trình C/C++, và kiến thức tốt cấu trúc dữ liệu và giải thuật. </p>
-        <hr>
-        
-        <h3 style="font-weight: bold;" id="goto-h2-7"> Ví dụ về Java </h3>
-        <p> Dưới đây là ví dụ về chương trình đơn giản trong java để in "Hello World"</p>
-        <div style="margin-top: 10px;margin-left: 60px;margin-right: 40%;border-style: groove;">
-          <p>
-            public class HelloWorld {
-              public static void main(String args[]){  
-                 System.out.println("Hello Java");  
-              }  
-          }
-          </p>
         </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-sm-3 col-4" id="myScrollspy">
+                  <div class="mau1"> 
+				      <ul class="nav nav-pills flex-column">
+				      <li class="nav-item">
+	                   <h4 class="chinh1">CÂU LỆNH ĐIỀU KHIỂN</h4>
+				      </li>
+				        <li>
+				         <p style="font-size: 25px;"> <a class="nav-link active" href="#section1">JAVA LÀ GÌ?</p></a>
+				        </li>
+				        <li class="nav-item">
+				         <p style="font-size: 25px;"> <a class="nav-link" href="#section2"> MỆNH ĐỀ IF - ELSE</p></a>
+				        </li>
+				        <li class="nav-item">
+				           <p style="font-size: 25px;"><a class="nav-link" href="#section3">Vòng lặp FOR</p></a>
+				        </li>     
+				      </ul>
+				  </div>
+				</nav>       
+             <div class="col-sm-9 col-8">
+                <iframe width="100%" height="500px" src="https://www.youtube.com/embed/ckBc_1XnXhA"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </hr>
+            <div id="section1">  
+               <div id="wrapper">
+                   <div id="scroller">  
+                   	<p style="color: black; font-size: 20px;"> Bài học: </p>             
+				      <h3 style="font-weight: bold;padding-bottom: 10px;text-align: center;border-bottom: 2px solid gray;font-size:45px;" id="goto-h2-1"> Java là gì? </h3>
+				                      <p style="padding: 5px;"> <strong>Java</strong> là một <strong> một ngôn ngữ lập trình hiện đại, bậc cao, hướng đối tượng, bảo mật và mạnh mẽ.</strong> và là một <strong>Platform</strong>. </p>
+				        <p> <strong>Platform:</strong> Bất cứ môi trường phần cứng hoặc phần mềm nào mà trong đó có một chương trình chạy, thì được hiểu như là một Platform. Với môi trường runtime riêng cho mình (JRE) và API, Java được gọi là Platform. </p>
+				        <p> Ngôn ngữ lập trình Java ban đầu được phát triển bởi <strong>Sun Microsystems</strong> do <strong>James Gosling</strong> khởi xướng và phát hành vào năm 1995. Phiên bản mới nhất của Java Standard Edition là Java SE 8. Với sự tiến bộ của Java và sự phổ biến rộng rãi của nó, nhiều cấu hình đã được xây dựng để phù hợp với nhiều loại nền tảng khác nhau. Ví dụ: J2EE cho các ứng dụng doanh nghiệp, J2ME cho các ứng dụng di động. </p>
+				        <p></p> Các phiên bản J2 mới đã được đổi tên thành Java SE, Java EE và Java ME. Phương châm của java là <strong>"Write Once, Run Anywhere"</strong> - viết một lần chạy nhiều nơi, nghĩa là bạn chỉ cần viết một lần trên window chẳng hạn, sau đó vẫn chương trình đó bạn có thể chạy trên Linux, Android, các thiết bị J2ME...  <p></p>
+				                <img class="logo2" style="margin-left: 250px; padding: 10px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc00cYJhjvjrcE-e7KI1bK16_UjFmdT2zQ9w&usqp=CAU">
+				        
+				                <h3 style="font-weight: bold; padding: 15px;" id="goto-h2-2"> Các tính năng của Java </h3>
+				        <p> Ngôn ngữ lập trình java có các tính năng sau: </p>
+				        <ul>
+				        <li><b>Hướng đối tượng</b> - Trong Java, mọi thứ đều là một Object. Java có thể dễ dàng mở rộng và bảo trì vì nó được xây dựng dựa trên mô hình Object.</li>
+				        <li><b>Nền tảng độc lập</b> - Không giống nhiều ngôn ngữ lập trình khác bao gồm cả C và C ++, khi Java được biên dịch, nó không được biên dịch thành ngôn ngữ máy nền tảng cụ thể, thay vào mã byte - nền tảng độc lập. Mã byte này được thông dịch bởi máy ảo (JVM) trên nền tảng nào đó mà nó đang chạy.</li>
+				        <li><b>Đơn giản</b> - Java được thiết kế để dễ học. Nếu bạn hiểu khái niệm cơ bản về OOP Java, sẽ rất dễ để trở thành master về java.</li>
+				        <li><b>Bảo mật</b> - Với tính năng an toàn của Java, nó cho phép phát triển các hệ thống không có virut, giả mạo. Các kỹ thuật xác thực dựa trên mã hoá khóa công khai.</li>
+				        <li><b>Kiến trúc - trung lập</b> - Trình biên dịch Java tạo ra định dạng tệp đối tượng kiến trúc trung lập, làm cho mã biên dịch được thực thi trên nhiều bộ vi xử lý, với sự hiện diện của hệ điều hành Java.</li>
+				        <li><b>Portable</b> - Là kiến trúc tập trung và không có khía cạnh thực hiện phụ thuộc của đặc tả này làm cho Java khả chuyển. Trình biên dịch trong Java được viết bằng ANSI C, đó là một tập con POSIX.</li>
+				        <li><b>Mạnh mẽ</b> - Java làm nỗ lực để loại trừ các tình huống dễ bị lỗi bằng cách kiểm tra lỗi tại thời gian biên dịch và kiểm tra lỗi tại runtime.</li>
+				        <li><b>Đa luồng</b> - Với tính năng đa luồng của Java có thể viết các chương trình có thể thực hiện nhiều tác vụ đồng thời. Tính năng thiết kế này cho phép các nhà phát triển xây dựng các ứng dụng tương tác có thể chạy trơn tru hơn.</li>
+				        <li><b>Thông dịch</b> - Mã byte Java được dịch trực tiếp tới các máy tính gốc và không được lưu trữ ở bất cứ đâu. </li>
+				        <li><b>Hiệu năng cao</b> - Với việc sử dụng trình biên dịch Just-In-Time, Java cho phép thực hiện hiệu năng cao.</li>
+				        <li><b>Phân tán</b> - Java được thiết kế cho môi trường phân tán của Internet.</li>
+				        <li><b>Năng động</b> - Java là năng động hơn C hoặc C++ vì nó được thiết kế để thích nghi với môi trường đang phát triển. Các chương trình Java có thể mang một lượng lớn thông tin tại runtime mà có thể được sử dụng để xác minh và giải quyết các truy cập vào các đối tượng tại runtime.</li>
+				        </ul>
+				        <hr>
+				        
+				        <h3 style="font-weight: bold; padding: 15px;" id="goto-h2-3"> Java được sử dụng để làm gì? </h3>
+				        <p> Trước khi tôi trả lời câu hỏi, Java được sử dụng để làm gì, hay lý do tại sao bạn nên chọn Java. Java rất phổ biến và đã thống trị lĩnh vực này từ đầu những năm 2000 đến nay 2020. </p>
+				        <p> Theo tập đoàn SUN, hiện nay có khoảng 3 tỷ thiết bị đang chạy java. </p><p>
+				        <pp> Java đã được sử dụng trong các lĩnh vực khác nhau. Ví dụ: </pp></p>
+				        <ol>
+				        <li> Desktop App như acrobat reader, media player, antivirus, ... </li>
+				        <li> Web App như irctc.co.in, javatpoint.com, ... </li>
+				        <li> Enterprise App như các ứng dụng về xử lý nghiệp vụ ngân hàng, ... </li>
+				        <li> Thiết bị Mobile như các ứng dụng Android. </li>
+				        <li> Hệ thống nhúng </li>
+				        <li> Smart Card </li>
+				        <li> Robot </li>
+				        <li> Game App </li>
+				        </ol>
+				        <hr>
+				        <h3 style="font-weight: bold;padding: 15px;" id="goto-h2-4"> Các kiểu của Java App </h3>
+				        <p> Có 4 kiểu ứng dụng chính của java app: </p>
+				        <h4 id="goto-h3-1"> 1. Standalone App </h3>
+				        <p> Standalone App cũng được biết đến như Desktop App hoặc Window-based App. Để tạo ra ứng dụng kiểu này người ta thường sử dụng AWT, Swing hoặc JavaFX framework. </p>
+				        <h3 id="goto-h3-2"> 2. Web App </h3>
+				        <p> Web App là ứng dụng chạy trên server và tạo được các trang động. Hiện nay, servlet, jsp, struts, jsf, spring... là những công nghệ được sử dụng để tạo Web App trong java. </p>
+				        <h4 id="goto-h3-3"> 3. Enterprise App </h3>
+				        <p> Một ứng dụng dạng như Banking App, có lợi thế là tính bảo mật cao, cân bằng tải (load balancing) và clustering. Trong java, EJB được sử dụng để tạo các Enterprise App. </p>
+				        <h4 id="goto-h3-4"> 4. Mobile App </h3>
+				        <p> Mobile App là ứng dụng được tạo ra cho các thiết bị di động. Hiện nay Android và Java ME được sử dụng để chạy các ứng dụng này. </p>
+				        <hr>
+				        
+				        <h3 style="font-weight: bold;" id="goto-h2-5"> Java Platforms </h3>
+				        <p> Có 4 nền tảng Java: </p>
+				        <h4 id="goto-h3-5"> 1. Java SE (Java Standard Edition) </h3>
+				        <p> Java SE là một nền tảng lập trình Java. Nó bao gồm các API lập trình Java như java.lang, java.io, java.net, java.util, java.sql, java.math, v.v. Nó bao gồm các chủ đề cốt lỗi như OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, v.v. </p>
+				        
+				        <h4 id="goto-h3-6"> 2. Java EE (Java Enterprise Edition) </h4>
+				        <p> Đây là một nền tảng doanh nghiệp chủ yếu được sử dụng để phát triển các ứng dụng web và doanh nghiệp. Nó được xây dựng trên nền tảng Java SE. Nó bao gồm các chủ đề như Servlet, JSP, Web Services, EJB, JPA , v.v. </p>
+				        
+				        <h4 id="goto-h3-7"> 3. Java ME (Java Micro Edition)</h3>
+				        <p> Đây là một nền tảng vi mô chủ yếu được sử dụng để phát triển các ứng dụng di động. </p>
+				        
+				        <h4 id="goto-h3-8"> 4. JavaFX </h3>
+				        <p> JavaFX là một nền tảng phần mềm phát triển các ứng dụng Internet phong phú (Rich Internet Applications – RIAs) có thể chạy trên nhiều loại thiết bị, nhiều hệ điều hành khác nhau. JavaFX là một giải pháp công nghệ cho GUI trên nền tảng Java nhằm tạo giao diện đồ họa người dùng dựa trên Swing và Java2D.</p>
+				        <hr>
+				        
+				        
+				           <h3 style="font-weight: bold;" id="goto-h2-6"> Tại sao bạn nên học lập trình Java? </h3>
+				        <p> Ngoài việc độc lập nền tảng, phong cách "lập trình hướng đối tượng" của Java và sự hấp dẫn rất cao đối với các nhà tuyển dụng IT. </p>
+				        <p> Như tên gọi của nó đã cho thấy, lập trình hướng đối tượng (OOP) sử dụng các đối tượng được định nghĩa đầy đủ - và các mối quan hệ giữa các đối tượng với nhau - để thực hiện các tác vụ khác nhau. Do nền tảng mô-đun tự nhiên của nó, OOP thường làm cho nó dễ dàng hơn, nhanh hơn và rẻ hơn trong phát triển và quản lý phần mềm. Cũng dễ hiểu khi những đặc điểm này buộc các tổ chức và doanh nghiệp ôm lấy Java trong vòng tay rộng mở, nâng ngôn ngữ lập trình này trở thành kỹ năng được mong muốn nhất của các nhà tuyển dụng. </p>
+				        <p> Và trong khi Java là rất "hot" với các nhà tuyển dụng, nó cũng không kém phần nóng bỏng đối với những người thực sự viết ra các chương trình máy tính. Mức lương trung bình của một lập trình viên Java tại Mỹ là $88K đô-la (hơn 1,8 tỷ VNĐ/năm) và Java tạo ra một nguồn cảm hứng bất tận để thu hút rất nhiều người theo đuổi nghề nghiệp cùng với nó. </p>
+				        <h3 style="font-weight: bold;" id="goto-h3-9"> Điều kiện tiên quyết để học lập trình Java </h3>
+				        <p> Bạn nên có kiến thức cơ bản về lập trình C/C++, và kiến thức tốt cấu trúc dữ liệu và giải thuật. </p>
+				        <hr>
+				        
+				        <h3 style="font-weight: bold;" id="goto-h2-7"> Ví dụ về Java </h3>
+				        <p> Dưới đây là ví dụ về chương trình đơn giản trong java để in "Hello World"</p>
+				        <div style="margin-top: 10px;margin-right: 40%;border-style: groove;padding: 10px;">
+				          <p>
+				            public class HelloWorld {
+				              public static void main(String args[]){  
+				                 System.out.println("Hello Java");  
+				              }  
+				          }
+				          </p>
+				        </div>
+				                                </div>
+				                                
+			 </div>
+                  </div>
+                <div id="section2">
+                  <div id="wrapper">
+                   <div id="scroller"> 
+                   <p style="color: black; font-size: 20px;"> Bài học: </p>             
+				    
+                    <h4 class="gach" style="font-weight: bold;padding-bottom: 10px;text-align: center;border-bottom: 2px solid gray;font-size:45px;" >Mệnh đề if - else trong java </h4> 
+                    
+                    <p class="menhde">Mệnh đề if trong java được sử dụng để kiểm tra giá trị dạng boolean của điều kiện.
+                        Mệnh đề này trả về giá trị <strong>True </strong> hoặc <strong>False</strong>. Có các kiểu của mệnh đề if-else trong java như sau:
+                        <ul>
+                            <li>Mệnh đề if</li>
+                            <li> Mệnh đề if-else</li>
+                            <li>Mệnh đề if-else-if</li>
+                        </ul>
+                    </p>
+
+                    <div class="noidung">
+                        <strong><h5>Nội dung chính</h5></strong>
+                        <ul>
+                            <li class="maul">Mệnh đề if</li>
+                            <li class="maul"> Mệnh đề if-else</li>
+                            <li class="maul">Mệnh đề if-else-if</li>
+                        </ul>
                     </div>
-            </div>
+
+                    <h2>Mệnh đề if</h2>
+                    <p>Mệnh đề if được sử dụng để kiểm tra giá trị dạng boolean của điều kiện. Khối lệnh sau if được thực thi nếu giá trị của điều kiện là <strong>True</strong></p>
+                    <u><strong><p>Cú pháp: </p></strong></u>
+
+                    <div>
+                        <ol> 
+                            <li>if (condition)  {</li>
+                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                            <li style="padding-left:50px">//nếu condition = true </li>
+                            <li>}</li> 
+                        </ol>
+                    </div>
+                    
+                    <img src="images/menh-de-if-else-trong-java.png" alt="." style="margin-left: 250px">
+                   <u><strong><p>Ví dụ: </p></strong></u>
+                    <div>
+                        <ol>
+                            <li style="padding-left:10px">public class Test { </li>
+                            <li style="padding-left:80px">public static void main(String[] args) { </li>
+                            <li style="padding-left:100px">int age = 20;</li>
+                            <li style="padding-left:100px">if (age > 18) {</li>
+                            <li style="padding-left:150px">System.out.print("Tuổi lớn hơn 18");</li> 
+                            <li style="padding-left:100px">}</li>
+                            <li style="padding-left:50px">} </li> 
+                            <li style="padding-left:10px">}</li>
+                        </ol>
+                    </div>
+                    <u><strong><p>Kết quả: </p></u></strong>
+                    <p class="tuoi">Tuổi lớn hơn 18</p>
+<hr>
+                <h2>Mệnh đề if-else</h2>
+                <p>Mệnh đề if-else cũng kiểm tra giá trị dạng boolean của điều kiện. 
+                    Nếu giá trị điều kiện là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện, 
+                    nếu là <strong>False</strong> thì chỉ có khối lệnh sau else được thực hiện.</p>
+                    <u><strong><p>Cú pháp: </p></strong></u>
+                    <div>
+                        <ol> 
+                            <li>if (condition)  {</li>
+                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                            <li style="padding-left:50px">//nếu condition = true </li>
+                            <li>}</li> 
+                            <li>else { </li>
+                                <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                                <li style="padding-left:50px">//nếu condition = false </li>
+                            <li>}</li> 
+                        </ol>
+                    </div>
+                <u><strong><p>Ví dụ: </p></strong></u>
+                <div>
+                    <ol>
+                        <li style="padding-left:10px">public class Test { </li>
+                        <li style="padding-left:50px">public static void main(String[] args) { </li>
+                        <li style="padding-left:80px">int number = 13;</li> 
+                        <li style="padding-left:80px">if (number % 2 == 0) {</li>
+                        <li style="padding-left:100px">System.out.println("Số " + number + " là số chẵn.");</li>
+                        <li style="padding-left:80px"> } else { </li> 
+                        <li style="padding-left:100px">System.out.println("Số " + number + " là số lẻ."); </li>
+                        <li style="padding-left:80px">  }</li>
+                        <li style="padding-left:50px">} </li>
+                        <li style="padding-left:10px">}</li>
+                    </ol> 
+                </div>
+                <u><strong><p>Kết quả: </p></u></strong>
+                <p class="tuoi">Số 13 là số lẻ.</p>
+                <hr>
+                <h2>Mệnh đề if-else-if</h2>
+                <p>Mệnh đề if-else-if cũng kiểm tra giá trị dạng boolean của điều kiện.
+                Nếu giá trị điều kiện if là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện.
+                Nếu giá trị điều kiện if else nào là <strong>True</strong> thì chỉ có khối lệnh sau else if đó sẽ được thực hiện... 
+                Nếu tất cả điều kiện của if và else if là <strong>False</strong> thì chỉ có khối lệnh sau else sẽ được thực hiện.</p>
+                <u><strong><p>Cú pháp: </p></strong></u>
+                <div>
+                    <ol> 
+                        <li>if (condition1)  {</li>
+                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                        <li style="padding-left:50px">//nếu condition1 = true </li>
+                        <li>}</li> 
+                        <li>else if (condition2) </li>
+                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                            <li style="padding-left:50px">//nếu condition2 = true </li>
+                        <li>}</li> 
+                        <li>else if (condition3)</li>
+                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                            <li style="padding-left:50px">//nếu condition3 = true </li>
+                        <li>}</li> 
+                        <li>...</li>
+                        <li>else</li>
+                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+                        <li style="padding-left:50px">//nếu tất cả những điều kiện trên là false</li>
+                    <li>}</li> 
+                    </ol>
+                </div> 
+                <u><strong><p>Ví dụ: </p></strong></u>
+                <div>
+                    <ol>
+                        <li style="padding-left:10px">public class Test { </li>
+                        <li style="padding-left:50px">public static void main(String[] args) { </li>
+                        <li style="padding-left:80px">int marks = 65;</li>
+                        <li style="padding-left:80px"> if (marks < 50) { </li>
+                        <li style="padding-left:100px"> System.out.println("Tạch!");</li>
+                        <li style="padding-left:80px">} else if (marks >= 50 && marks < 60) { </li>
+                        <li style="padding-left:100px">  System.out.println("Xếp loại D"); </li>
+                        <li style="padding-left:80px"></li>} else if (marks >= 60 && marks < 70) { </li>
+                        <li style="padding-left:100px"> System.out.println("Xếp loại C"); </li>
+                        <li style="padding-left:80px"> } else if (marks >= 70 && marks < 80) { </li>
+                        <li style="padding-left:100px">  System.out.println("Xếp loại B"); </li>
+                        <li style="padding-left:80px">} else if (marks >= 80 && marks < 90) {</li>
+                        <li style="padding-left:100px">System.out.println("Xếp loại A");</li>
+                        <li style="padding-left:80px">} else if (marks >= 90 && marks < 100) {</li>
+                        <li style="padding-left:100px">System.out.println("Xếp loại A+");</li>
+                        <li style="padding-left:80px">} else {</li>
+                        <li style="padding-left:100px">System.out.println("Giá trị không hợp lệ!");</li>
+                        <li style="padding-left:80px">}</li>
+                        <li style="padding-left:50px">}</li>
+                        <li style="padding-left:10px">}</li>
+                    </ol>
+                </div>
+           <u><strong><p>Kết quả: </p></u></strong>
+           <p class="tuoi">Xếp loại C</p>
+           <hr>
+                     </div>
+               </div>
+               </div>
+               
+               
+                <div id="section3">
+                
+		                <div id="wrapper">
+		                   <div id="scroller">  
+		                    <p style="color: black; font-size: 20px;"> Bài học: </p>             
+				  
+			                    <h4 class="gach" style="font-weight: bold;padding-bottom: 10px;text-align: center;border-bottom: 2px solid gray;font-size:45px;" >Mệnh đề Switch-case trong java </h4> 
+			                   
+			                    <p class="menhde">Mệnh đề switch-case trong java được sử dụng để thực thi 1 hoặc nhiều khối lệnh từ nhiều điều kiện.
+			                        <u><strong><p>Cú pháp: </p></u></strong>
+		                        <ol>
+		                            <li><strong style="color: blue;"> switch</strong> (bieu_thuc) {  </li>  
+		                            <li><strong  style="color: blue;">case </strong> gia_tri_1: </li>
+		                            <li style="padding-left:80px">// Khối lệnh 1 </li>
+		                            <li style="padding-left:80px"> <strong style="color: blue;"> break;</strong>//tùy chọn </li>
+		                            <li> <strong  style="color: blue;">case</strong> gia_tri_2:   </li> 
+		                            <li style="padding-left:80px">// Khối lệnh 2 </li>
+		                            <li style="padding-left:80px"><strong style="color: blue;"> break;</strong> //tùy chọn </li>
+		                            <li>......  </li>  
+		                            <li> <strong  style="color: blue;">case</strong> gia_tri_n:   </li>  
+		                            <li style="padding-left:80px">// Khối lệnh n </li>
+		                            <li style="padding-left:80px"><strong style="color: blue;"> break;</strong> //tùy chọn  </li>   
+		                            <li><strong style="color: blue;">default:</strong>    </li> 
+		                            <li style="padding-left:80px">// Khối lệnh này được thực thi </li>
+		                            <li style="padding-left:80px">// nếu tất cả các điều kiện trên không thỏa mãn </li>
+		                            <li>}  </li>
+		                        </ol>
+		                    </p>
+		
+		                    <img src="images/menh-de-switch-case-trong-java.png" alt=".">
+		
+		                    <u><strong><p>Ví dụ về mệnh lệnh switch-case:</p></strong></u>
+		                    <div>
+		                        <ol>
+		                            <li style="padding-left:10px"><strong style="color: blue;"> public class</strong> SwitchExample { </li>
+		                            <li style="padding-left:80px"><strong style="color: blue;"> public static void</strong> main(String[] args) { </li>
+		                            <li style="padding-left:80px"><strong style="color: blue;">int</strong> number = 20;</li>
+		                            <li style="padding-left:80px"><strong style="color: blue;">switch</strong> (number)</li>
+		                            <li style="padding-left:80px"><strong style="color: blue;">case 10:</strong></li> 
+		                            <li style="padding-left:100px">System.out.println("10");</li>
+		                            <li style="padding-left:100px"><strong style="color: blue;">break;</strong></li> 
+		                            <li style="padding-left:80px"><strong style="color: blue;">case 20:</strong></li> 
+		                            <li style="padding-left:100px">System.out.println("20");</li>
+		                            <li style="padding-left:100px"><strong style="color: blue;">break;</strong></li>
+		                            <li style="padding-left:80px"><strong style="color: blue;">case 30:</strong></li> 
+		                            <li style="padding-left:100px">System.out.println("30");</li>
+		                            <li style="padding-left:100px"><strong style="color: blue;">break;</strong></li>
+		                            <li style="padding-left:80px"><strong style="color: blue;">default</strong></li> 
+		                            <li style="padding-left:100px">System.out.println("Not in 10, 20 or 30");</li>
+		                            <li style="padding-left:50px">}</li>
+		                            <li style="padding-left:30px">}</li>
+		                            <li style="padding-left:10px">}</li>
+		                        </ol>
+		                    </div>
+		                    <u><strong><p>Kết quả: </p></u></strong>
+		                    <p class="tuoi">Kết quả: 20</p>
+		<hr>
+		
+		                <div class="noidung">
+		                    <strong><h5>Nội dung chính</h5></strong>
+		                    <ul>
+		                        <li class="maul">Mệnh đề if</li>
+		                        <li class="maul"> Mệnh đề if-else</li>
+		                        <li class="maul">Mệnh đề if-else-if</li>
+		                    </ul>
+		                </div>
+		                <h2>Mệnh đề if-else</h2>
+		                <p>Mệnh đề if-else cũng kiểm tra giá trị dạng boolean của điều kiện. 
+		                    Nếu giá trị điều kiện là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện, 
+		                    nếu là <strong>False</strong> thì chỉ có khối lệnh sau else được thực hiện.</p>
+		                    <u><strong><p>Cú pháp: </p></strong></u>
+		                    <div>
+		                        <ol> 
+		                            <li>if (condition)  {</li>
+		                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                            <li style="padding-left:50px">//nếu condition = true </li>
+		                            <li>}</li> 
+		                            <li>else { </li>
+		                                <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                                <li style="padding-left:50px">//nếu condition = false </li>
+		                            <li>}</li> 
+		                        </ol>
+		                    </div>
+		                <u><strong><p>Ví dụ: </p></strong></u>
+		                <div>
+		                    <ol>
+		                        <li style="padding-left:10px">public class Test { </li>
+		                        <li style="padding-left:50px">public static void main(String[] args) { </li>
+		                        <li style="padding-left:80px">int number = 13;</li> 
+		                        <li style="padding-left:80px">if (number % 2 == 0) {</li>
+		                        <li style="padding-left:100px">System.out.println("Số " + number + " là số chẵn.");</li>
+		                        <li style="padding-left:80px"> } else { </li> 
+		                        <li style="padding-left:100px">System.out.println("Số " + number + " là số lẻ."); </li>
+		                        <li style="padding-left:80px">  }</li>
+		                        <li style="padding-left:50px">} </li>
+		                        <li style="padding-left:10px">}</li>
+		                    </ol> 
+		                </div>
+		                <u><strong><p>Kết quả: </p></u></strong>
+		                <p class="tuoi">Số 13 là số lẻ.</p>
+		                <hr>
+		                <h2>Mệnh đề if-else-if</h2>
+		                <p>Mệnh đề if-else-if cũng kiểm tra giá trị dạng boolean của điều kiện.
+		                Nếu giá trị điều kiện if là <strong>True</strong> thì chỉ có khối lệnh sau if sẽ được thực hiện.
+		                Nếu giá trị điều kiện if else nào là <strong>True</strong> thì chỉ có khối lệnh sau else if đó sẽ được thực hiện... 
+		                Nếu tất cả điều kiện của if và else if là <strong>False</strong> thì chỉ có khối lệnh sau else sẽ được thực hiện.</p>
+		                <u><strong><p>Cú pháp: </p></strong></u>
+		                <div>
+		                    <ol> 
+		                        <li>if (condition1)  {</li>
+		                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                        <li style="padding-left:50px">//nếu condition1 = true </li>
+		                        <li>}</li> 
+		                        <li>else if (condition2) </li>
+		                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                            <li style="padding-left:50px">//nếu condition2 = true </li>
+		                        <li>}</li> 
+		                        <li>else if (condition3)</li>
+		                            <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                            <li style="padding-left:50px">//nếu condition3 = true </li>
+		                        <li>}</li> 
+		                        <li>...</li>
+		                        <li>else</li>
+		                        <li style="padding-left:50px">//khối lệnh này thưc thi </li>
+		                        <li style="padding-left:50px">//nếu tất cả những điều kiện trên là false</li>
+		                    <li>}</li> 
+		                    </ol>
+		                </div> 
+		                <u><strong><p>Ví dụ: </p></strong></u>
+		                <div>
+		                    <ol>
+		                        <li style="padding-left:10px">public class Test { </li>
+		                        <li style="padding-left:50px">public static void main(String[] args) { </li>
+		                        <li style="padding-left:80px">int marks = 65;</li>
+		                        <li style="padding-left:80px"> if (marks < 50) { </li>
+		                        <li style="padding-left:100px"> System.out.println("Tạch!");</li>
+		                        <li style="padding-left:80px">} else if (marks >= 50 && marks < 60) { </li>
+		                        <li style="padding-left:100px">  System.out.println("Xếp loại D"); </li>
+		                        <li style="padding-left:80px"></li>} else if (marks >= 60 && marks < 70) { </li>
+		                        <li style="padding-left:100px"> System.out.println("Xếp loại C"); </li>
+		                        <li style="padding-left:80px"> } else if (marks >= 70 && marks < 80) { </li>
+		                        <li style="padding-left:100px">  System.out.println("Xếp loại B"); </li>
+		                        <li style="padding-left:80px">} else if (marks >= 80 && marks < 90) {</li>
+		                        <li style="padding-left:100px">System.out.println("Xếp loại A");</li>
+		                        <li style="padding-left:80px">} else if (marks >= 90 && marks < 100) {</li>
+		                        <li style="padding-left:100px">System.out.println("Xếp loại A+");</li>
+		                        <li style="padding-left:80px">} else {</li>
+		                        <li style="padding-left:100px">System.out.println("Giá trị không hợp lệ!");</li>
+		                        <li style="padding-left:80px">}</li>
+		                        <li style="padding-left:50px">}</li>
+		                        <li style="padding-left:10px">}</li>
+		                    </ol>
+		                </div>
+					           <u><strong><p>Kết quả: </p></u></strong>
+					           <p class="tuoi">Xếp loại C</p>
+					           <hr>
+					     	 </div>
+		                </div>
+		            </div>
+		           </div>
+		         </div>      
+      </div>
+     </div>
             
-            <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+            <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
                        <a href="https://LGLH/"> LGLH.com</a>
              </div>
 </body>

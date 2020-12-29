@@ -15,15 +15,12 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <body style="background-color: #F1F1F1">
 	<!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" style="background-color: #343A40">
-<div class="container" style="padding-right:400px;">
-  <a class="navbar-brand" href="#TrangChu.html"><img  th:src="@{image/tin.png}" class="rounded-circle" alt="Cinque Terre" width="50" height="30"><br> </a>
-	<h2 style="color:white; font-size: 25px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
-	<h3 style="color:white; font-size: 25px;font-family: Casterio Signature;"><strong>Liên hệ</strong></h3>	
-	<form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" style="background-color: #343A40; height: 50px;">
+<div class="container" style="padding-right:700px;">
+  <a class="navbar-brand" href="#TrangChu.html"><img  th:src="@{image/tin.png}" class="rounded-circle" alt="Cinque Terre" width="50" height="40"><br> </a>
+	<h2 style="color:white; font-size: 30px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
+	<h3 style="color:white; font-size: 30px;font-family: Casterio Signature;"><strong>Liên hệ</strong></h3>	
+	
  </div>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -32,13 +29,11 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item"  width= "50px">
-	     <a class="nav-link waves-effect waves-light" th:href="@{/admin}">
-		   		<button type="button" class="btn btn-primary">Đăng nhập</button>
+      <li class="nav-item">
+     <a style="margin-left:-100px" class="nav-link waves-effect waves-light"  th:href="@{/admin}">
+	   		<button type="button" class="btn btn-primary">Đăng nhập</button>
 		</a>
-	 </li>
-	<li class="nav-item">
-		<a class="nav-link waves-effect waves-light" width="50px" th:href="@{/dangky}">
+		<a style="margin-left: 30px;margin-top:-54px;" class="nav-link waves-effect waves-light"  th:href="@{/dangky}">
            <button type="button" class="btn btn-primary">Đăng ký</button>
         </a>
       </li>
@@ -113,36 +108,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     
     <footer class="page-footer font-small special-color-dark pt-4 bg-dark">
         <div class="container">
-		   <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-fb mx-1">
-                        <i class="fab fa-facebook-f"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-tw mx-1">
-                        <i class="fab fa-twitter"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-gplus mx-1">
-                        <i class="fab fa-google-plus-g"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-li mx-1">
-                        <i class="fab fa-linkedin-in"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-dribbble mx-1">
-                        <i class="fab fa-dribbble"> </i>
-                    </a>
-                </li>
-            </ul>
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://LGLH/"> LGLH.com</a>
-        </div>
+	        <div class="footer-copyright text-center" style="color:white;">© 2020 Copyright:
+	            <a href="https://LGLH/"> LGLH.com</a>
+	        </div>
         </div>
     </footer>
     
