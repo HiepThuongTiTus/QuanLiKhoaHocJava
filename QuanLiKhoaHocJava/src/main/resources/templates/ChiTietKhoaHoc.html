@@ -7,6 +7,7 @@
 <title>Chi Tiết khóa học</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="styl.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <style>
@@ -24,63 +25,249 @@ h1{
     position: fixed;
     color:white;
   }
-
-#section1
+  
+#wrapper
 {
-  margin-top: 15px;
+	margin-top: 5px;
+    height: 510px;
+    width: 100%;
+    border:1px solid black;
+    padding:20px;
+    overflow:auto;
 }
-  .title
-  {
-    padding: 100px;
-    margin-left: 50px;
-    margin-top: 100px;
-  }
-  .titla
-  {
-    padding: 10px;
-  }
-  h2{
-    margin-top: 50px;
-    font-size: 35px;
+#scroller
+{
+    height:450px;
+}
+
+.gach
+{
+
     text-align: center;
-  }
-  .btn-secondary
-  {
-  	float:right;
-  }
+    padding: 20px;
+    color: white;
+    font-size: 25px;
+    border-bottom: 2px solid rgb(57, 57, 218);
+}
+.gach1{
+    margin-left:5px;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(241, 238, 238);
+    background-color: rgb(108, 214, 37);
+}
+
+.gach1:hover{
+    color: red;
+}
+.chux
+{
+    font-size:20px;
+    margin-top: 15px;
+    color: green;
+    border-bottom: 1px solid rgb(180, 180, 192);
+    margin-bottom: 10px;
+}
+.chux2
+{
+    text-align: left;
+
+}
+.chux1
+{
+    text-align: right;
+}
+.chux2:hover{
+    color: rgb(200, 233, 14);
+}
+.chux1:hover{
+    color: rgb(236, 240, 10);
+}
+.menhde
+{
+    padding: 10px;
+}
+.noidung
+{
+    background-color: rgb(50, 172, 20);
+    border: 1px solid rgb(180, 180, 192);
+    margin-bottom: 20px;
+}
+h5{
+    margin-left: 12px;
+    font-size: 20px;
+    color: rgb(243, 241, 239);
+}
+li{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.maul
+{
+    color: rgb(248, 164, 7);
+}
+.maul:hover
+{
+    color: rgb(253, 252, 251);
+}
+
+ol{
+    border: 1px solid rgb(180, 180, 192);
+    border-left: 5px solid green;
+}
+li{
+    
+    padding: 5px;
+}
+.tuoi
+{
+    border: 1px solid rgb(180, 180, 192);
+    padding: 10px;
+    font-size: 15px;
+}
+hr{
+    border: 1px solid rgb(180, 180, 192);
+}
+
 </style>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
- <div class="fixed-top">
-    <h1> LGLH </h1>
-    <div style="float: right;margin-right: 50px;font-size: 1.5em;color:white;">	
-		<button type="button" class="btn btn-primary"><a href="javascript: logoutForm.submit()" style="color: white;">Đăng xuất</a> </button>
-			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
-				<input type="submit" value="Đăng xuất">
-			</form>
-		</div>
-  </div>
-		
-	<h2 style="color: orange;font-size: 50px; margin-top: 80px; padding: 10px;">Danh sách các bài học</h2>
-	<!-- <a href="" th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
-		<span th:text="${baihoc.stt}"></span>.<strong th:text="${baihoc.tenbaihoc}"></strong><br>
-	</a> -->
-	<div style="margin-left: 350px; margin-top: 50px; text-align: center;">
-		<table border="2" width=700px>
-			<tr>
-				<td><strong>STT</strong></td>
-				<td><strong>Tên Bài học</strong></td>
-				<td></td>
-			</tr>
-			<tr th:each = "baihoc : ${listAllBaiHocByMaKhoaHoc}">
-				<!-- <td th:text="${baihoc.mabaihoc}"></td> -->
-				<td th:text="${baihoc.stt}"></td>
-				<td  th:text="${baihoc.tenbaihoc}"></td>
-				<td><a style="color: red;" th:href="@{'/khoahoc/'+${baihoc.danhmuckhoahoc.makhoahoc}+'/'+${baihoc.mabaihoc}}"><strong>Học ngay</strong></a></td>
-			</tr>
-		</table>
-	</div>
-<div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
-      		 <a href="https://LGLH/"> LGLH.com</a>
- </div>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">LGLH</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="fixed-top">
+            <h1> LGLH </h1>
+          </div>
+            <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                         <div class="mau1"> 
+                   <h4 class="gach">CÂU LỆNH ĐIỀU KHIỂN</h4>
+                   <div>
+                        <p class="gach1"><i class="fas fa-caret-right"><a th:href="@{'/khoahoc/'+${baihoc.danhmuckhoahoc.makhoahoc}+'/'+${baihoc.mabaihoc}}"><p th:text="${baihoc.tenbaihoc}"></p></a></i></p>
+                   </div>
+                </div>             
+                        </div>
+        
+                        <div class="col-sm-9">
+                            <div id="wrapper" style="margin-top: 80px;">
+                                <div id="scroller">
+                                <iframe width="100%" height="500px" src="https://www.youtube.com/embed/ckBc_1XnXhA"
+                            frameborder="0" style="margin-top: 90px;padding-right:30px; border-right: 2px solid black;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </hr>
+                                       <h3 style="font-weight: bold;" id="goto-h2-1"> Java là gì? </h3>
+                      <p> <strong>Java</strong> là một <strong> một ngôn ngữ lập trình hiện đại, bậc cao, hướng đối tượng, bảo mật và mạnh mẽ.</strong> và là một <strong>Platform</strong>. </p>
+        <p> <strong>Platform:</strong> Bất cứ môi trường phần cứng hoặc phần mềm nào mà trong đó có một chương trình chạy, thì được hiểu như là một Platform. Với môi trường runtime riêng cho mình (JRE) và API, Java được gọi là Platform. </p>
+        <p> Ngôn ngữ lập trình Java ban đầu được phát triển bởi <strong>Sun Microsystems</strong> do <strong>James Gosling</strong> khởi xướng và phát hành vào năm 1995. Phiên bản mới nhất của Java Standard Edition là Java SE 8. Với sự tiến bộ của Java và sự phổ biến rộng rãi của nó, nhiều cấu hình đã được xây dựng để phù hợp với nhiều loại nền tảng khác nhau. Ví dụ: J2EE cho các ứng dụng doanh nghiệp, J2ME cho các ứng dụng di động. </p>
+        <p></p> Các phiên bản J2 mới đã được đổi tên thành Java SE, Java EE và Java ME. Phương châm của java là <strong>"Write Once, Run Anywhere"</strong> - viết một lần chạy nhiều nơi, nghĩa là bạn chỉ cần viết một lần trên window chẳng hạn, sau đó vẫn chương trình đó bạn có thể chạy trên Linux, Android, các thiết bị J2ME...  <p></p>
+                <img class="logo2" src="img/java-la-gi.png">
+        
+                <h3 style="font-weight: bold;" id="goto-h2-2"> Các tính năng của Java </h3>
+        <p> Ngôn ngữ lập trình java có các tính năng sau: </p>
+        <ul>
+        <li><b>Hướng đối tượng</b> - Trong Java, mọi thứ đều là một Object. Java có thể dễ dàng mở rộng và bảo trì vì nó được xây dựng dựa trên mô hình Object.</li>
+        <li><b>Nền tảng độc lập</b> - Không giống nhiều ngôn ngữ lập trình khác bao gồm cả C và C ++, khi Java được biên dịch, nó không được biên dịch thành ngôn ngữ máy nền tảng cụ thể, thay vào mã byte - nền tảng độc lập. Mã byte này được thông dịch bởi máy ảo (JVM) trên nền tảng nào đó mà nó đang chạy.</li>
+        <li><b>Đơn giản</b> - Java được thiết kế để dễ học. Nếu bạn hiểu khái niệm cơ bản về OOP Java, sẽ rất dễ để trở thành master về java.</li>
+        <li><b>Bảo mật</b> - Với tính năng an toàn của Java, nó cho phép phát triển các hệ thống không có virut, giả mạo. Các kỹ thuật xác thực dựa trên mã hoá khóa công khai.</li>
+        <li><b>Kiến trúc - trung lập</b> - Trình biên dịch Java tạo ra định dạng tệp đối tượng kiến trúc trung lập, làm cho mã biên dịch được thực thi trên nhiều bộ vi xử lý, với sự hiện diện của hệ điều hành Java.</li>
+        <li><b>Portable</b> - Là kiến trúc tập trung và không có khía cạnh thực hiện phụ thuộc của đặc tả này làm cho Java khả chuyển. Trình biên dịch trong Java được viết bằng ANSI C, đó là một tập con POSIX.</li>
+        <li><b>Mạnh mẽ</b> - Java làm nỗ lực để loại trừ các tình huống dễ bị lỗi bằng cách kiểm tra lỗi tại thời gian biên dịch và kiểm tra lỗi tại runtime.</li>
+        <li><b>Đa luồng</b> - Với tính năng đa luồng của Java có thể viết các chương trình có thể thực hiện nhiều tác vụ đồng thời. Tính năng thiết kế này cho phép các nhà phát triển xây dựng các ứng dụng tương tác có thể chạy trơn tru hơn.</li>
+        <li><b>Thông dịch</b> - Mã byte Java được dịch trực tiếp tới các máy tính gốc và không được lưu trữ ở bất cứ đâu. </li>
+        <li><b>Hiệu năng cao</b> - Với việc sử dụng trình biên dịch Just-In-Time, Java cho phép thực hiện hiệu năng cao.</li>
+        <li><b>Phân tán</b> - Java được thiết kế cho môi trường phân tán của Internet.</li>
+        <li><b>Năng động</b> - Java là năng động hơn C hoặc C++ vì nó được thiết kế để thích nghi với môi trường đang phát triển. Các chương trình Java có thể mang một lượng lớn thông tin tại runtime mà có thể được sử dụng để xác minh và giải quyết các truy cập vào các đối tượng tại runtime.</li>
+        </ul>
+        <hr>
+        
+        <h3 style="font-weight: bold;" id="goto-h2-3"> Java được sử dụng để làm gì? </h3>
+        <p> Trước khi tôi trả lời câu hỏi, Java được sử dụng để làm gì, hay lý do tại sao bạn nên chọn Java. Java rất phổ biến và đã thống trị lĩnh vực này từ đầu những năm 2000 đến nay 2020. </p>
+        <p> Theo tập đoàn SUN, hiện nay có khoảng 3 tỷ thiết bị đang chạy java. </p><p>
+        <pp> Java đã được sử dụng trong các lĩnh vực khác nhau. Ví dụ: </pp></p>
+        <ol>
+        <li> Desktop App như acrobat reader, media player, antivirus, ... </li>
+        <li> Web App như irctc.co.in, javatpoint.com, ... </li>
+        <li> Enterprise App như các ứng dụng về xử lý nghiệp vụ ngân hàng, ... </li>
+        <li> Thiết bị Mobile như các ứng dụng Android. </li>
+        <li> Hệ thống nhúng </li>
+        <li> Smart Card </li>
+        <li> Robot </li>
+        <li> Game App </li>
+        </ol>
+        <hr>
+        <h3 style="font-weight: bold;" id="goto-h2-4"> Các kiểu của Java App </h3>
+        <p> Có 4 kiểu ứng dụng chính của java app: </p>
+        <h4 id="goto-h3-1"> 1. Standalone App </h3>
+        <p> Standalone App cũng được biết đến như Desktop App hoặc Window-based App. Để tạo ra ứng dụng kiểu này người ta thường sử dụng AWT, Swing hoặc JavaFX framework. </p>
+        <h3 id="goto-h3-2"> 2. Web App </h3>
+        <p> Web App là ứng dụng chạy trên server và tạo được các trang động. Hiện nay, servlet, jsp, struts, jsf, spring... là những công nghệ được sử dụng để tạo Web App trong java. </p>
+        <h4 id="goto-h3-3"> 3. Enterprise App </h3>
+        <p> Một ứng dụng dạng như Banking App, có lợi thế là tính bảo mật cao, cân bằng tải (load balancing) và clustering. Trong java, EJB được sử dụng để tạo các Enterprise App. </p>
+        <h4 id="goto-h3-4"> 4. Mobile App </h3>
+        <p> Mobile App là ứng dụng được tạo ra cho các thiết bị di động. Hiện nay Android và Java ME được sử dụng để chạy các ứng dụng này. </p>
+        <hr>
+        
+        <h3 style="font-weight: bold;" id="goto-h2-5"> Java Platforms </h3>
+        <p> Có 4 nền tảng Java: </p>
+        <h4 id="goto-h3-5"> 1. Java SE (Java Standard Edition) </h3>
+        <p> Java SE là một nền tảng lập trình Java. Nó bao gồm các API lập trình Java như java.lang, java.io, java.net, java.util, java.sql, java.math, v.v. Nó bao gồm các chủ đề cốt lỗi như OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, v.v. </p>
+        
+        <h4 id="goto-h3-6"> 2. Java EE (Java Enterprise Edition) </h4>
+        <p> Đây là một nền tảng doanh nghiệp chủ yếu được sử dụng để phát triển các ứng dụng web và doanh nghiệp. Nó được xây dựng trên nền tảng Java SE. Nó bao gồm các chủ đề như Servlet, JSP, Web Services, EJB, JPA , v.v. </p>
+        
+        <h4 id="goto-h3-7"> 3. Java ME (Java Micro Edition)</h3>
+        <p> Đây là một nền tảng vi mô chủ yếu được sử dụng để phát triển các ứng dụng di động. </p>
+        
+        <h4 id="goto-h3-8"> 4. JavaFX </h3>
+        <p> JavaFX là một nền tảng phần mềm phát triển các ứng dụng Internet phong phú (Rich Internet Applications – RIAs) có thể chạy trên nhiều loại thiết bị, nhiều hệ điều hành khác nhau. JavaFX là một giải pháp công nghệ cho GUI trên nền tảng Java nhằm tạo giao diện đồ họa người dùng dựa trên Swing và Java2D.</p>
+        <hr>
+        
+        
+           <h3 style="font-weight: bold;" id="goto-h2-6"> Tại sao bạn nên học lập trình Java? </h3>
+        <p> Ngoài việc độc lập nền tảng, phong cách "lập trình hướng đối tượng" của Java và sự hấp dẫn rất cao đối với các nhà tuyển dụng IT. </p>
+        <p> Như tên gọi của nó đã cho thấy, lập trình hướng đối tượng (OOP) sử dụng các đối tượng được định nghĩa đầy đủ - và các mối quan hệ giữa các đối tượng với nhau - để thực hiện các tác vụ khác nhau. Do nền tảng mô-đun tự nhiên của nó, OOP thường làm cho nó dễ dàng hơn, nhanh hơn và rẻ hơn trong phát triển và quản lý phần mềm. Cũng dễ hiểu khi những đặc điểm này buộc các tổ chức và doanh nghiệp ôm lấy Java trong vòng tay rộng mở, nâng ngôn ngữ lập trình này trở thành kỹ năng được mong muốn nhất của các nhà tuyển dụng. </p>
+        <p> Và trong khi Java là rất "hot" với các nhà tuyển dụng, nó cũng không kém phần nóng bỏng đối với những người thực sự viết ra các chương trình máy tính. Mức lương trung bình của một lập trình viên Java tại Mỹ là $88K đô-la (hơn 1,8 tỷ VNĐ/năm) và Java tạo ra một nguồn cảm hứng bất tận để thu hút rất nhiều người theo đuổi nghề nghiệp cùng với nó. </p>
+        <h3 style="font-weight: bold;" id="goto-h3-9"> Điều kiện tiên quyết để học lập trình Java </h3>
+        <p> Bạn nên có kiến thức cơ bản về lập trình C/C++, và kiến thức tốt cấu trúc dữ liệu và giải thuật. </p>
+        <hr>
+        
+        <h3 style="font-weight: bold;" id="goto-h2-7"> Ví dụ về Java </h3>
+        <p> Dưới đây là ví dụ về chương trình đơn giản trong java để in "Hello World"</p>
+        <div style="margin-top: 10px;margin-left: 60px;margin-right: 40%;border-style: groove;">
+          <p>
+            public class HelloWorld {
+              public static void main(String args[]){  
+                 System.out.println("Hello Java");  
+              }  
+          }
+          </p>
+        </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            
+            <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+                       <a href="https://LGLH/"> LGLH.com</a>
+             </div>
 </body>
 </html>

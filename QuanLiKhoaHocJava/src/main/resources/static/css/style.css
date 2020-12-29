@@ -1,3 +1,4 @@
+
 .btn-box{
     text-align: right;
     background-color: black;
@@ -17,6 +18,10 @@
     border: none;
     outline: none;
 }
+.btn
+{
+	padding: 3px;
+}
 
 .border-col1{
     border-right: 70px;
@@ -34,6 +39,9 @@
     margin-left: 2px;
     margin-right: 6px;
 }
+
+
+
 
 .logo{
     margin-left: -20px;

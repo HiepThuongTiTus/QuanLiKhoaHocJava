@@ -15,18 +15,15 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <body style="background-color: #F1F1F1">
 	<!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" style="background-color: #F7BE81">
-<div class="container">
-  <a class="navbar-brand" href="#TrangChu.html"><img  th:src="@{image/tin.png}" class="rounded-circle" alt="Cinque Terre" width="50" height="40"><br> </a>
-	<h2 style="color:black; font-size: 40px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
-	<h3 style="color:black;font-size: 25px;font-family: Casterio Signature;"> <a href="/admin/gioithieu.html"><strong>Giới thiệu</strong></a></h3>
-	<h3 style="color:black; font-size: 25px;font-family: Casterio Signature;"> <strong>Khóa học</strong></h3>	
-	<h3></h3>
-	<h3></h3>
-	<h3></h3>
-	<h3></h3>
-	<h3></h3>
-	<h3></h3>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" style="background-color: #343A40">
+<div class="container" style="padding-right:400px;">
+  <a class="navbar-brand" href="#TrangChu.html"><img  th:src="@{image/tin.png}" class="rounded-circle" alt="Cinque Terre" width="50" height="30"><br> </a>
+	<h2 style="color:white; font-size: 25px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
+	<h3 style="color:white; font-size: 25px;font-family: Casterio Signature;"><strong>Liên hệ</strong></h3>	
+	<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
  </div>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -35,10 +32,15 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link waves-effect waves-light"  href="/admin">
-	   		<button type="button" class="btn btn-primary">Đăng nhập</button>
+      <li class="nav-item"  width= "50px">
+	     <a class="nav-link waves-effect waves-light" th:href="@{/admin}">
+		   		<button type="button" class="btn btn-primary">Đăng nhập</button>
 		</a>
+	 </li>
+	<li class="nav-item">
+		<a class="nav-link waves-effect waves-light" width="50px" th:href="@{/dangky}">
+           <button type="button" class="btn btn-primary">Đăng ký</button>
+        </a>
       </li>
       <li class="nav-item avatar dropdown">
         <a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
@@ -60,7 +62,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <div id="menu">
                 <ul>
                   <h4 class="h-2" style="padding-top: 15px;padding-bottom: 20px;font-size:25px;padding:15px;">Danh mục khóa học</h4>
-                	<li th:each="KhoaHoc : ${khoahocjava}"><a href="#" th:text="${KhoaHoc.tenkhoahoc}" style="padding: 5px;padding-top: 5px;padding-bottom: 5px;"></a></li>
+                	<li th:each="KhoaHoc : ${khoahocjava}"><a th:href="@{'/khoahoc/'+${KhoaHoc.makhoahoc}}" th:text="${KhoaHoc.tenkhoahoc}" style="padding: 5px;padding-top: 5px;padding-bottom: 5px;"></a></li>
                 </ul>
                </div>
             </div>

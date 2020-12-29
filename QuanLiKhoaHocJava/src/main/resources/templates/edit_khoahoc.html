@@ -54,7 +54,7 @@ h1{
   </div>
 		<div align="center">
 		<h1>Thêm một khóa học</h1><br>
-		<form th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post">
+		<form th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post" enctype="multipart/form-data">
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Nhập mã khóa học:  &nbsp;&nbsp;&nbsp;</td>
