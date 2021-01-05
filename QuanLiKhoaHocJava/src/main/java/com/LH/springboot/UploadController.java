@@ -37,17 +37,19 @@ public class UploadController {
 	    String docId=null;
 	    if(file.getSize()>0) {
 	    	 try {
-	 	    	String orgId  ="ORG00001";
-	    		 String userId ="USER00002";
+	 	    	String orgId  ="luutru";
+	    		 String userId ="baitap";
 
 	 	    	String docCatagory ="education";
 	 	    	
 	 	   	DocumentDetails documentDetails =  	documentService.storeFile(file, userId, orgId, docCatagory);
 	 	    docId= documentDetails.getDocument_id()	;
 	 	   	message = "Uploaded the file successfully: " + file.getOriginalFilename();
+	 	   	map.addAttribute("thanhcong", message);
 	 	    } catch (Exception e) {
 	 	    	e.printStackTrace();
 	 	      message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+	 	 	map.addAttribute("thatbai", message);
 	 	   }	
 	    }
 	    

@@ -22,7 +22,7 @@ public class SpringFileUploadNguoiDungController {
 	@Autowired
 	private NguoiDungFileServiceImpl nguoidungfileserviceimpl;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
+	@RequestMapping(value="/file", method = RequestMethod.GET)
 	public String listNguoiDung(Model model){
 		List<NguoiDung> listNguoidung = nguoidungserviceimpl.getAllNguoiDung();
 		model.addAttribute("nguoidungs", listNguoidung);

@@ -12,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="document_details")
 public class DocumentDetails {
 	@Id
-	@GenericGenerator(name = "document_id", strategy = "com.example.FileUploadExample.generator.DocumentGenerator")
+	@GenericGenerator(name = "document_id", strategy = "com.LH.springboot.DocumentGenerator")
 	@GeneratedValue(generator = "document_id")
 	
 	@Column(name="document_id")
