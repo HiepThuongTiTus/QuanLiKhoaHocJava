@@ -53,7 +53,8 @@
     <h3 class="nachu"> LGLH </h3>
   </div>
 	<div align="center">
-		<h1>Thêm một bài học</h1><br>
+		<h1 style="padding: 10px; font-size: 35px;margin-top: 50px;"> <strong>Thêm một bài học</strong></h1><br>
+		
 		<form  th:action="@{/admin/quanlibaihoc/save}" th:object="${baihoc}" method="post">
 		 
 			<table border="0" cellpadding="10">
@@ -73,7 +74,7 @@
 				</tr>
 				
 				<tr>
-					<td>Nhập noi dung bài học: </td>
+					<td>Nhập nội dung bài học: </td>
 					<td><textarea id="noidungbaihoc" rows="5" th:field="*{noidung}"></textarea></td>
 				</tr>
 				
@@ -88,7 +89,7 @@
 			</table>
 		</form>
 	</div>
-	 <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+	 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
    <a href="https://LGLH/"> LGLH.com</a>
  </div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

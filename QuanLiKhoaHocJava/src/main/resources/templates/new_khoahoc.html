@@ -13,11 +13,11 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
    	body {
     position: relative;
   }
-h1{
+.nachu{
   	background-color: #2E2E2E;
-    padding: 10px;
+    padding: 5px;
     color: white;
-    padding-left: 80px;
+    text-align: center
 }
   ul.nav-pills {
     top: 100px;
@@ -49,11 +49,11 @@ h1{
   }
 </style>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
- <div class="fixed-top">
-    <h1> LGLH </h1>
+<div class="fixed-top">
+    <h3 class="nachu"> LGLH </h3>
   </div>
 	<div align="center">
-		<h1 style="padding: 15px; color:white; font-size: 40px;"> <strong>Thêm một khóa học</strong></h1><br>
+		<h1 style="padding: 15px; color:white; font-size: 40px;margin-top: 100px;"> <strong>Thêm một khóa học</strong></h1><br>
 		<form  th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post"
 			enctype="multipart/form-data">
 			<table border="0" cellpadding="10" style="font-size: 18px;">
