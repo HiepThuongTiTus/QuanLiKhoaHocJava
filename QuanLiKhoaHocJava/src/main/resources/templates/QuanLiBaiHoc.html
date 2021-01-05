@@ -12,15 +12,14 @@
    	body {
     position: relative;
   }
-h1{
-    background-color: #F7BE81;
-    padding: 10px;
+.nachu{
+  	background-color: #2E2E2E;
+    padding: 5px;
     color: white;
-    padding-left: 80px;
+    text-align: center
 }
   ul.nav-pills {
-    top: 100px;
-    position: fixed;
+    top: 70px;
     color:white;
   }
 
@@ -30,7 +29,7 @@ h1{
 }
   .title
   {
-    padding: 100px;
+    padding: 70px;
     margin-left: 50px;
     margin-top: 100px;
   }
@@ -39,7 +38,7 @@ h1{
     padding: 10px;
   }
   h2{
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 35px;
     text-align: center;
   }
@@ -50,7 +49,7 @@ h1{
 </style>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
  <div class="fixed-top">
-    <h1> LGLH </h1>
+    <h3 class="nachu"> LGLH </h3>
   </div>
 	 <div class="container-fluid">
       <div class="row">
@@ -60,10 +59,10 @@ h1{
               <a class="nav-link" href="/admin/quanlikhoahoc"><p> Quản lí thông tin khóa học </p></a>
             </li>
             <li class="nav-link active">
-              <a class="nav-link" href="/admin/quanlibaihoc"><p  style="color: white;">Quản lí thông tin bài học</p></a>
+              <a class="nav-link" href="/admin/quanlibaihoc"><p style="color: white;">Quản lí thông tin bài học</p></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+              <a class="nav-link" href="#section2"><p> Quản lí thông tin học viên</p></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
@@ -77,7 +76,7 @@ h1{
 						<input type="submit" value="Đăng xuất">
 					</form>
 		
-		<h2  style="padding: 20px;"><strong> Quản lí bài học trong khóa học JAVA</strong></h2>
+		<h2  style="padding: 20px;"><strong> QUẢN LÍ BÀI HỌC TRONG KHÓA HỌC JAVA</strong></h2>
 		<a th:href="@{/admin/quanlibaihoc/new}"><button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một bài học</button></a>
 		<table border="1" cellpadding="10" style="margin-left: 100px; padding:10px;">
 			<thead>
@@ -146,13 +145,13 @@ h1{
 			<span th:unless="${currentPage < totalPages}">Last</span>
 		</div>
 		<!-- End Phan Trang -->
-	</div>	
-				<button type="button" class="btn btn-secondary"><a href="/admin/"  style="color:white; margin-right: 0px;">Quay về</a></button>
+			</div>	
+				<button type="button" class="btn btn-secondary"><a href="/admin/" style="color:white; margin-right: 0px;">Quay về</a></button>
+		</div>
+	</div>
 </div>
-	</div>
-	</div>
-	 <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+	<div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
       		 <a href="https://LGLH/"> LGLH.com</a>
- </div>
+ 	</div>
 </body>
 </html>

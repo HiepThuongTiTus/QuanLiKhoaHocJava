@@ -18,8 +18,8 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" style="background-color: #343A40; height: 50px;">
 <div class="container" style="padding-right:700px;">
   <a class="navbar-brand" href="#TrangChu.html"><img  th:src="@{image/tin.png}" class="rounded-circle" alt="Cinque Terre" width="50" height="40"><br> </a>
-	<h2 style="color:white; font-size: 30px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
-	<h3 style="color:white; font-size: 30px;font-family: Casterio Signature;"><strong>Liên hệ</strong></h3>	
+	<h2 style="color:white; font-size: 20px;font-family: Casterio Signature;"> <strong>LGLH</strong></h2>
+	<h3 style="color:white; font-size: 20px;font-family: Casterio Signature;"><strong>LIÊN HỆ</strong></h3>	
 	
  </div>
  
@@ -31,10 +31,10 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">
      <a style="margin-left:-100px" class="nav-link waves-effect waves-light"  th:href="@{/admin}">
-	   		<button type="button" class="btn btn-primary">Đăng nhập</button>
+	   		<button type="button" class="btn btn-primary">ĐĂNG NHẬP</button>
 		</a>
 		<a style="margin-left: 30px;margin-top:-54px;" class="nav-link waves-effect waves-light"  th:href="@{/dangky}">
-           <button type="button" class="btn btn-primary">Đăng ký</button>
+           <button type="button" class="btn btn-primary">ĐĂNG KÝ</button>
         </a>
       </li>
       <li class="nav-item avatar dropdown">
@@ -56,7 +56,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
               <!-- Menu -->
     <div id="menu">
                 <ul>
-                  <h4 class="h-2" style="padding-top: 15px;padding-bottom: 20px;font-size:25px;padding:15px;">Danh mục khóa học</h4>
+                  <h4 class="h-2" style="padding-top: 15px;padding-bottom: 20px;font-size:20px;padding:15px;text-align: center;">DANH MỤC KHÓA HỌC</h4>
                 	<li th:each="KhoaHoc : ${khoahocjava}"><a th:href="@{'/khoahoc/'+${KhoaHoc.makhoahoc}}" th:text="${KhoaHoc.tenkhoahoc}" style="padding: 5px;padding-top: 5px;padding-bottom: 5px;"></a></li>
                 </ul>
                </div>

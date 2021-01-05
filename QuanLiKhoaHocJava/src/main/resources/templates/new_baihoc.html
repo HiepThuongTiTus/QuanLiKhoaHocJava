@@ -5,22 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Thêm bài học Java</title>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}">
 </head>
 <style>
    	body {
     position: relative;
   }
-h1{
+.nachu{
   	background-color: #2E2E2E;
-    padding: 10px;
+    padding: 5px;
     color: white;
-    padding-left: 80px;
+    text-align: center
 }
   ul.nav-pills {
-    top: 100px;
+    top: 50px;
     position: fixed;
   }
 
@@ -50,7 +50,7 @@ h1{
 </style>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
  <div class="fixed-top">
-    <h1> LGLH </h1>
+    <h3 class="nachu"> LGLH </h3>
   </div>
 	<div align="center">
 		<h1>Thêm một bài học</h1><br>
@@ -71,6 +71,12 @@ h1{
 					<td>Nhập tên bài học: </td>
 					<td><input type="text" th:field="*{tenbaihoc}"></td>
 				</tr>
+				
+				<tr>
+					<td>Nhập noi dung bài học: </td>
+					<td><textarea id="noidungbaihoc" rows="5" th:field="*{noidung}"></textarea></td>
+				</tr>
+				
 				<tr>
 					<td>Nhập mã khóa học: </td>
 					<td><input type="text" th:field="*{danhmuckhoahoc.makhoahoc}"></td>
@@ -85,5 +91,15 @@ h1{
 	 <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
    <a href="https://LGLH/"> LGLH.com</a>
  </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script th:src="@{/richtext/jquery.richtext.min.js}"></script> 
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#noidungbaihoc").richText();
+		});
+	</script>
 </body>
 </html>
