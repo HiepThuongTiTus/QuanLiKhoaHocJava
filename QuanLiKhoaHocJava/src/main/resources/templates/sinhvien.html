@@ -6,12 +6,55 @@
 <title>Sinh Vien Excel</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
+<style>
+   	body {
+    position: relative;
+  }
+.nachu{
+  	background-color: #2E2E2E;
+    padding: 5px;
+    color: white;
+    text-align: center
+}
+  ul.nav-pills {
+    top: 70px;
+    position: fixed;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
 <body>
+ <div class="fixed-top">
+    <h3 class="nachu"> LGLH </h3>
+  </div>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<h3>FileUpload</h3>
+				<h3 style="margin-top: 80px; font-size: 20px;">FileUpload</h3>
 				<div class="alert alert-success alert-dismissible fade show"
 					role="alert" th:if="${thanhcong}">
 					
@@ -35,7 +78,7 @@
 				<form th:action="@{'/sinhvien/fileupload'}" th:object="${sinhvien}"
 					method="post" enctype="multipart/form-data">
 					<div class="form-group">
-						<label for="fileupload">File Upload(Excel)</label> <input
+						<label for="fileupload">(Excel)</label> <input
 							type="file" class="form-control" id="file" name="file"
 							th:field="*{file}">
 					</div>
@@ -44,16 +87,16 @@
 			</div>
 
 			<div class="col-md-12">
-				<h3>All Sinh Vien</h3>
+				<h3 style="text-align: center;padding: 10px;">All Sinh Vien</h3>
 				<table class="table table-bordered table-sm">
 					<thead>
 						<tr>
 							<th>STT</th>
 							<th>Ma Sinh Vien</th>
 							<th>Ho Va Ten</th>
-							<th>Ngay Sinh</th>
+							<th style="display: none;">Ngay Sinh</th>
 							<th>Lop Sinh Hoat</th>
-							<th>Ghi Chu</th>
+							<th style="display: none;">Ghi Chu</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -61,9 +104,9 @@
 							<td th:text="${sinhvien.stt}"></td>
 							<td th:text="${sinhvien.masinhvien}"></td>
 							<td th:text="${sinhvien.hovaten}"></td>
-							<td th:text="${sinhvien.ngaysinh}"></td>
+							<!-- <td th:text="${sinhvien.ngaysinh}"></td> -->
 							<td th:text="${sinhvien.lopsinhhoat}"></td>
-							<td th:text="${sinhvien.ghichu}"></td>
+							<!-- <td th:text="${sinhvien.ghichu}"></td> -->
 						</tr>
 
 					</tbody>
@@ -71,7 +114,9 @@
 			</div>
 		</div>
 	</div>
-
+<div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+     <a href="https://LGLH/"> LGLH.com</a>
+ </div>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<script
