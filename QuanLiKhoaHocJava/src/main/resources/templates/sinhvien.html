@@ -54,7 +54,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
+			
 				<h3 style="margin-top: 80px; font-size: 20px;">FileUpload</h3>
+				<button type="button" class="btn btn-secondary"><a href="/admin/" style="color:white; margin-right: 0px;">Quay về</a></button>
+		
 				<div class="alert alert-success alert-dismissible fade show"
 					role="alert" th:if="${thanhcong}">
 					
@@ -75,7 +78,7 @@
 					<strong th:text="${thatbai}"></strong>
 				</div>
 				
-				<form th:action="@{'/sinhvien/fileupload'}" th:object="${sinhvien}"
+				<form th:action="@{'/admin/sinhvien/fileupload'}" th:object="${sinhvien}"
 					method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="fileupload">(Excel)</label> <input
@@ -94,9 +97,9 @@
 							<th>STT</th>
 							<th>Ma Sinh Vien</th>
 							<th>Ho Va Ten</th>
-							<th style="display: none;">Ngay Sinh</th>
+							<th>Ngay Sinh</th>
 							<th>Lop Sinh Hoat</th>
-							<th style="display: none;">Ghi Chu</th>
+							<th>Ghi Chu</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -104,9 +107,9 @@
 							<td th:text="${sinhvien.stt}"></td>
 							<td th:text="${sinhvien.masinhvien}"></td>
 							<td th:text="${sinhvien.hovaten}"></td>
-							<!-- <td th:text="${sinhvien.ngaysinh}"></td> -->
+							<td th:text="${sinhvien.ngaysinh}"></td>
 							<td th:text="${sinhvien.lopsinhhoat}"></td>
-							<!-- <td th:text="${sinhvien.ghichu}"></td> -->
+							<td th:text="${sinhvien.ghichu}"></td>
 						</tr>
 
 					</tbody>
@@ -114,6 +117,9 @@
 			</div>
 		</div>
 	</div>
+	<div style="margin-top:200px;margin-left:100px;">
+     <a th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>  
+   </div>
 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
      <a href="https://LGLH/"> LGLH.com</a>
  </div>

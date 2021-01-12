@@ -17,17 +17,17 @@
    	body {
     position: relative;
   }
-h1{
-    background-color: #2E2E2E;
-    padding: 10px;
-    color: white;
-    padding-left: 80px;
+.nachu {
+	background-color: #2E2E2E;
+	padding: 5px;
+	color: white;
+	text-align: center
 }
-  ul.nav-pills {
-    top: 100px;
-    position: fixed;
-    color:white;
-  }
+
+ul.nav-pills {
+	top: 70px;
+	position: fixed;
+}
   
 #wrapper
 {
@@ -135,9 +135,18 @@ hr{
 
 </style>
 <body th:object="${chitietbaihoc1}" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
- 
- 	<div th:remove="tag" th:utext=${chitietbaihoc1.noidung}>
-	
+ <div class="fixed-top nachu">
+		<h4>LGLH</h4>
 	</div>
+	<div style="margin-top:50px;margin-bottom:20px;">
+		<div th:remove="tag" th:utext=${chitietbaihoc1.noidung}>
+		</div>
+		<div style="margin-top: 50px;">
+			<a href="http://localhost:8081">Nộp bài</a>
+		</div>
+	</div>
+ 	
+	
+	
 </body>
 </html>

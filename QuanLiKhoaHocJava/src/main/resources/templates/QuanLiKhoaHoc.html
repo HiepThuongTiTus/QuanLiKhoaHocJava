@@ -61,8 +61,8 @@
 	            <li class="nav-item">
 	              <a class="nav-link" href="/admin/quanlibaihoc"><p>Quản lí thông tin bài học</p></a>
 	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link" href="#section2"><p>Quản lí thông tin học viên</p></a>
+	             <li class="nav-item">
+	              <a class="nav-link" href="/admin/sinhvien"><p>Lấy danh sách exel</p></a>
 	            </li>
 	            <li class="nav-item">
 	              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
@@ -78,6 +78,7 @@
 		
 				<strong><h2 style="padding: 20px;">QUẢN LÍ KHÓA HỌC JAVA</h2></strong>
 				<a th:href="@{/admin/quanlikhoahoc/new}"> <button type="button" class="btn btn-primary"  style="margin-bottom: 20px;">Thêm một khóa học</button></a>
+				<a style="margin-left:700px;" th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>
 				<table border="1" cellpadding="10" style="margin-left: 100px; padding:10px;">
 					<thead>
 						<tr>
@@ -150,9 +151,12 @@
 			</div>
 		</div>
  </div>
- 
- <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
-     <a href="https://LGLH/"> LGLH.com</a>
- </div>
+ <footer class="page-footer font-small special-color-dark pt-4 bg-dark">
+        <div class="container">
+	        <div class="footer-copyright text-center" style="color:white;">© 2020 Copyright:
+	            <a href="https://LGLH/"> LGLH.com</a>
+	        </div>
+        </div>
+    </footer>
 </body>
 </html>

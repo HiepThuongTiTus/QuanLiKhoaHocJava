@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/sinhvien")
+@RequestMapping("/admin/sinhvien")
 public class SinhVienController {
 	@Autowired
 	private SinhVienServiceImpl sinhvienserviceimpl;
@@ -33,6 +33,6 @@ public class SinhVienController {
 		}else {
 			redirectAttributes.addFlashAttribute("thatbai", "upload file that bai, moi ban tai file lai");
 		}
-		return "redirect:/sinhvien";
+		return "redirect:/admin/sinhvien";
 	}
 }

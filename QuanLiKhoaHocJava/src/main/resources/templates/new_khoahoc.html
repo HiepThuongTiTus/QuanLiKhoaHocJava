@@ -20,7 +20,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
     text-align: center
 }
   ul.nav-pills {
-    top: 100px;
+    top: 30px;
     position: fixed;
   }
 
@@ -53,7 +53,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
     <h3 class="nachu"> LGLH </h3>
   </div>
 	<div align="center">
-		<h1 style="padding: 15px; color:white; font-size: 40px;margin-top: 100px;"> <strong>Thêm một khóa học</strong></h1><br>
+		<h1 style="padding: 10px; color:black; font-size: 40px;margin-top: 50px;"> <strong>Thêm một khóa học</strong></h1><br>
 		<form  th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post"
 			enctype="multipart/form-data">
 			<table border="0" cellpadding="10" style="font-size: 18px;">
@@ -85,7 +85,10 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 			</table>
 		</form>
 	</div>
-	 <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+	<div style="margin-top:-30px;margin-left:100px;">
+     <a th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>  
+   </div>
+	 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
    <a href="https://LGLH/"> LGLH.com</a>
  </div>
 	<script type="text/javascript">

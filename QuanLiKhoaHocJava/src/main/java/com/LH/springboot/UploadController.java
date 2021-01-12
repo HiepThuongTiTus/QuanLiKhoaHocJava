@@ -28,8 +28,6 @@ public class UploadController {
 
 	@GetMapping()
 	public String showIndex() {
-		
-		
 		return "index" ;
 	}
 	

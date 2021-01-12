@@ -64,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/admin/**").authenticated()
 			.antMatchers("/admin/quanlikhoahoc/edit/**").authenticated()
 			.antMatchers("/khoahoc/**").authenticated()
-			.antMatchers("/nopbai/**").hasAnyAuthority("ADMIN","USER")
+//				 .antMatchers("/nopbai/**").hasAnyAuthority("ADMIN","USER") 
 			.and()
 			.formLogin()
 				/* .permitAll() */ 

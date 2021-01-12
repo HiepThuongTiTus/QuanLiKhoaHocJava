@@ -59,27 +59,27 @@
 		 
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Nhập mã bài học: </td>
+					<td><strong>Nhập mã bài học:</strong> </td>
 					<td><input type="text" th:field="*{mabaihoc}"></td>
 				</tr>
 				
 				<tr>
-					<td>Nhập số thứ tự bài học: </td>
+					<td><strong>Nhập số thứ tự bài học:</strong> </td>
 					<td><input type="text" th:field="*{stt}"></td>
 				</tr> 
 	
 				<tr>
-					<td>Nhập tên bài học: </td>
+					<td><strong>Nhập tên bài học:</strong> </td>
 					<td><input type="text" th:field="*{tenbaihoc}"></td>
 				</tr>
 				
 				<tr>
-					<td>Nhập nội dung bài học: </td>
+					<td><strong>Nhập nội dung bài học:</strong> </td>
 					<td><textarea id="noidungbaihoc" rows="5" th:field="*{noidung}"></textarea></td>
 				</tr>
 				
 				<tr>
-					<td>Nhập mã khóa học: </td>
+					<td><strong>Nhập mã khóa học:</strong> </td>
 					<td><input type="text" th:field="*{danhmuckhoahoc.makhoahoc}"></td>
 				</tr>
 				
@@ -89,6 +89,9 @@
 			</table>
 		</form>
 	</div>
+	<div style="margin-top:-30px;margin-left:100px;">
+     <a th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>  
+   </div>
 	 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
    <a href="https://LGLH/"> LGLH.com</a>
  </div>
